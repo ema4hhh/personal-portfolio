@@ -1,4 +1,3 @@
-import './styles/App.css';
 import React from 'react';
 import { NavBar } from './components/NavBar';
 import { PresentationText } from './components/PresentationText';

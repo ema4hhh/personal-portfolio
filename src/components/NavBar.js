@@ -1,12 +1,25 @@
-import '../styles/NavBar.css';
-import { AppBar, Toolbar, Typography, Button } from '@mui/material';
+import { AppBar, Toolbar, Typography, Button} from '@mui/material';
+import { makeStyles } from '@mui/styles';
+
+const useStyles = makeStyles(({
+  root: {
+    flexGrow: 1,
+  },
+  title: {
+    flexGrow: 1,
+    fontFamily: 'Arial'
+  },
+}));
+
 
 export const NavBar = () => {
+  const classes = useStyles();
+
   return(
-  <div className='root'>
+  <div className={classes.root}>
     <AppBar position="static">
       <Toolbar>
-        <Typography variant="h6" className='title'>
+        <Typography variant="h6" className={classes.title}>
           Emanuel Castaño Cardona
         </Typography>
         <Button color="inherit">About</Button>
