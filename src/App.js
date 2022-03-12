@@ -1,36 +1,21 @@
-import React, { useState } from "react";
+import React from "react";
 
-import { createTheme, ThemeProvider } from "@mui/material/styles";
-import SmallComponent from "./components/SmallComponent";
-import { Box, CardHeader, FormControlLabel, FormGroup, Switch, Typography } from "@mui/material";
+import { useTheme } from "@mui/material/styles";
 
-// Define theme settings
-const light = {
-  palette: {
-    mode: "light",
-    bg: "white",
-    zIndex: 1,
-  },
-};
+import NavBar from "./components/NavBar";
+import Intro from "./components/Intro";
+import About from "./components/About";
+import { Box } from "@mui/material";
 
-const dark = {
-  palette: {
-    mode: "dark",
-    bg: "black",
-    color: "white",
-    zIndex: 1,
-  },
-};
-
-const App = () => {
-  const [isDarkTheme, setIsDarkTheme] = useState(false);
+const App = ({isDarkTheme, setIsDarkTheme }) => {
+  const theme = useTheme();
 
   return (
-    <ThemeProvider theme={isDarkTheme ? createTheme(dark) : createTheme(light)}>
-      <div>
-        <SmallComponent setIsDarkTheme={setIsDarkTheme} isDarkTheme={isDarkTheme} dark={dark} light={light} />
-      </div>
-    </ThemeProvider>
+    <Box style={{ backgroundColor: theme.palette.primary.main, fontFamily: theme.palette.fontFamily }}>
+      <NavBar isDarkTheme={isDarkTheme} setIsDarkTheme={setIsDarkTheme}/>
+      <Intro />
+      <About />
+    </Box>
   );
 };
 
