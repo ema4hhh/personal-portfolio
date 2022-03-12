@@ -4,7 +4,8 @@ const baseTheme = createTheme({
   fontFamily: "Fira Code",
   fonySize: 14,
   navColor: "transparent",
-  navFontColor: "white"
+  navFontColor: "white",
+  navShadow: "none"
 })
 
 const darkTheme = createTheme({
