@@ -4,11 +4,9 @@ import { IconButton } from '@mui/material';
 import { Brightness3, Brightness7 } from '@mui/icons-material';
 
 
-const ChangeTheme = ({ setIsDarkTheme, isDarkTheme }) => {
+const ChangeTheme = ({ changeTheme, isDarkTheme }) => {
 
-  const changeTheme = () => {
-    setIsDarkTheme(!isDarkTheme);
-  };
+
 
   return (
     <IconButton onClick={changeTheme} color="inherit">
