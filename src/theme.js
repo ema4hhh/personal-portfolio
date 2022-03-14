@@ -1,12 +1,24 @@
 import { createTheme } from '@mui/material/styles';
 
 const baseTheme = createTheme({
-  fontFamily: "Fira Code",
-  fonySize: 14,
+  typography: {
+    fontFamily: "JetBrains Mono, monospace",
+    fonySize: 14,
+  },
   navColor: "transparent",
   navFontColor: "white",
-  navShadow: "none"
+  navShadow: "none",
 })
+
+baseTheme.typography.h1 = {
+  fontSize: "2.5rem",
+  fontFamily: 'JetBrains Mono, monospace',
+  fontWeight: "800"
+}
+baseTheme.typography.h4 = {
+  fontSize: "1.05rem", 
+  fontFamily: 'JetBrains Mono, monospace',
+}
 
 const darkTheme = createTheme({
   ...baseTheme,

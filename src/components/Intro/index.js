@@ -3,10 +3,10 @@ import React, { useEffect, useRef } from 'react';
 //Typing animation library
 import Typed from "typed.js";
 
-import { Box } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 import { useTheme } from "@mui/material/styles";
 
-import  backgroundImage from "../../assets/intro-bg.jpg"
+
 
 const Intro = () => {
   const theme = useTheme();
@@ -16,27 +16,23 @@ const Intro = () => {
   useEffect(() => {
     const typed = new Typed(el.current, {
       strings: ["Curious", "Smart", "Gentle", "Serious"],
-      typeSpeed: 80,
+      typeSpeed: 100,
 			loop: true,
-			backDelay: 1100,
-			backSpeed: 30,
+			backDelay: 1000,
+			backSpeed: 50,
+      cursorChar: "_",
+      shuffle: true
     });
     return () => {
       typed.destroy();
-      console.log(theme);
     };
   }, []);
   
   return (
     <Box id="home" style={{
       position: "relative",
-      backgroundImage: `url(${backgroundImage})`,
       height: "100vh",
       color: "#fff",
-      backgroundRepeat: "no-repeat",
-      backgroundAttachment: "fixed",
-      backgroundSize: "cover",
-      backgroundPosition: "center center",
     }}>
       <Box style={{
         backgroundColor: "rgba(0, 0, 0, 0.6)",
@@ -60,18 +56,17 @@ const Intro = () => {
           verticalAlign: "middle",
         }}>
           <Box>
-            <h1 style={{
+            <Typography style={{
             color: "#fff",
             fontWeight: 600,
             fontSize: "3rem",
-            fontFamily: theme.fontFamily,
             }}>
               Emanuel Castaño
-            </h1>
-            <span ref={el} style={{
-              fontSize: "1.5rem",
-              fontWeight: 300,           
-            }}></span>
+            </Typography>
+            <Typography ref={el} style={{
+              fontSize: "1.45rem",
+              display: "inline"
+            }}></Typography>
           </Box>
         </Box>
       </Box>

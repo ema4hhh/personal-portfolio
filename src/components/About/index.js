@@ -1,15 +1,16 @@
-import { useTheme } from '@mui/material'
 import React from 'react'
+
+import { Box, Typography, useTheme } from '@mui/material';
 
 const Intro = () => {
 
   const theme = useTheme();
 
   return (
-    <div style={{ fontFamily: theme.fontFamily, fontSize: theme.fontSize, color: theme.palette.fontColor.primary.main,backgroundColor: theme.palette.primary }}>
-      <h1 id="about">About</h1>
-      Intro ingeniosa Emanuel Castaño
-    </div>
+    <Box sx={{backgroundColor: theme.palette.primary.main}}>
+      <Typography id="about" variant='h1'>About Me</Typography>
+      <Typography variant='h4'>Intro ingeniosa Emanuel Castaño</Typography>    
+    </Box>
   )
 }
 
