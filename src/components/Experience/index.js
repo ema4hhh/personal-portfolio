@@ -1,18 +1,16 @@
-import React, { useEffect, useState } from 'react';
-
-import axios from 'axios';
+import React from 'react';
 
 import { Box, useTheme } from '@mui/material';
 
-  /* 'https://api.github.com/users/ema4hhh' */
-
-
-const Experience = () => {
+const Experience = ({ loading, error, repos }) => {
   const theme = useTheme();
 
   return (
-    <Box sx={{backgroundColor: theme.palette.primary.main}}>
-      
+    <Box id="Experience" sx={{
+      backgroundColor: theme.palette.primary.main,
+      color: theme.palette.fontColor.primary.main
+    }}>
+      { loading ? <p>Cargando</p> : <p>{repos}</p> }
     </Box>
   )
 }
