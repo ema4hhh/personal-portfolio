@@ -6,17 +6,16 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 
 import ChangeTheme from "../ChangeTheme"
-import { useScrollTrigger, useTheme } from '@mui/material';
+import { useTheme } from '@mui/material';
 
-const NavBar = ({ setIsDarkTheme, isDarkTheme, changeTheme }) => {
+const NavBar = ({ setIsDarkTheme, isDarkTheme, changeTheme, trigger }) => {
   const theme = useTheme();
 
-  const trigger = useScrollTrigger({
-    threshold: 20,
-  });
-
   return (
-    <Box sx={{ flexGrow: 1 }}>
+    <Box sx={{ 
+      flexGrow: 1,
+      backgroundColor: "rgba(0, 0, 0, 0.6)",
+    }}>
       <AppBar position="fixed" style={ 
         trigger ? {backgroundColor: theme.palette.navOnScroll} 
         : {
@@ -35,6 +34,7 @@ const NavBar = ({ setIsDarkTheme, isDarkTheme, changeTheme }) => {
           <ChangeTheme setIsDarkTheme={setIsDarkTheme} isDarkTheme={isDarkTheme} changeTheme={changeTheme} />
         </Toolbar>
       </AppBar>
+      <Toolbar id="back-to-top-anchor" />
     </Box>
   )
 }
