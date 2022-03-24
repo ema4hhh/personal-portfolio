@@ -5,9 +5,10 @@ import Typed from "typed.js";
 
 import { Box, Typography } from '@mui/material';
 import { useTheme } from "@mui/material/styles";
+
 import GoToContent from './GoToContent';
 
-const Intro = ({ trigger }) => {
+const Intro = ({ trigger, handleGoToContent }) => {
   const theme = useTheme();
 
   const el = useRef(null);
@@ -20,7 +21,6 @@ const Intro = ({ trigger }) => {
 			backDelay: 1000,
 			backSpeed: 50,
       cursorChar: "_",
-      shuffle: true
     });
     return () => {
       typed.destroy();
@@ -69,7 +69,7 @@ const Intro = ({ trigger }) => {
           </Box>
         </Box>
       </Box>
-      <GoToContent trigger={trigger}/>
+      <GoToContent trigger={trigger} handleGoToContent={handleGoToContent}/>
     </Box>
   )
 }
