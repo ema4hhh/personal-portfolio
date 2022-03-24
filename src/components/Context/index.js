@@ -25,15 +25,23 @@ const ContextProvider = (props) => {
   });
 
   const handleGoUpClick = (event) => {
-    const anchor = (event.target.ownerDocument || document).querySelector(
-      '#back-to-top-anchor'
-    );
+    const anchor = (event.target.ownerDocument || document).querySelector('#back-to-top-anchor');
     if (anchor) {
       anchor.scrollIntoView({
         behavior: 'smooth',
         block: 'center',
       });
     }}
+
+  const handleGoToContent = (event) => {
+    const anchor = (event.target.ownerDocument || document).querySelector("#about");
+    if (anchor) {
+      anchor.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      })
+    }
+  }
 
   return (
     <Context.Provider value={{
@@ -45,6 +53,7 @@ const ContextProvider = (props) => {
       phoneNumber,
       trigger,
       handleGoUpClick,
+      handleGoToContent,
     }}>
       {props.children}
     </Context.Provider>

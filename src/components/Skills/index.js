@@ -17,11 +17,11 @@ const Skills = () => {
   const theme = useTheme();
 
   return (
-    <Box  sx={{
+    <Box id="skills"  sx={{
       backgroundColor: theme.palette.primary.main,
       color: theme.palette.fontColor.primary.main,
       }}>
-      <Typography id="skill" variant='h1'>
+      <Typography variant='h1'>
         Skills
       </Typography>
       <Typography variant='h4'>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</Typography>

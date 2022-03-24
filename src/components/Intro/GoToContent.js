@@ -13,8 +13,7 @@ const StyledFab = styled(Fab)`
   }
 `
 
-const GoToContent = ({ trigger }) => {
-  const theme = useTheme();
+const GoToContent = ({ trigger, handleGoToContent }) => {
 
   return (
     <Box sx={{ 
@@ -30,8 +29,8 @@ const GoToContent = ({ trigger }) => {
         fontSize: "20px",
         color: "white",
       }}>
-        <StyledFab disableRipple variant="extended" size='small'>
-          <KeyboardArrowDown sx={{height: 60, width: 60}}/>
+        <StyledFab disableRipple variant="extended" size='small' onClick={handleGoToContent}>
+          <KeyboardArrowDown sx={{height: 60, width: 60}} />
         </StyledFab>
       </Fade>
     </Box>

@@ -26,6 +26,7 @@ const App = () => {
     phoneNumber,
     trigger,
     handleGoUpClick,
+    handleGoToContent,
   } = useContext(Context);
 
   return (
@@ -38,7 +39,7 @@ const App = () => {
         backgroundPosition: "center center",
       }}>
         <NavBar isDarkTheme={isDarkTheme} changeTheme={changeTheme} trigger={trigger} />
-        <Intro trigger={trigger} />
+        <Intro trigger={trigger} handleGoToContent={handleGoToContent}/>
         <About />
         <Skills />
         <Box sx={{ backgroundColor: "white" }}>

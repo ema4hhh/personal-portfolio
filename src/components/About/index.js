@@ -7,11 +7,11 @@ const Intro = () => {
   const theme = useTheme();
 
   return (
-    <Box sx={{
+    <Box id="about" sx={{
       backgroundColor: theme.palette.primary.main,
       color: theme.palette.fontColor.primary.main
       }}>
-      <Typography id="about" variant='h1'>About Me</Typography>
+      <Typography variant='h1'>About Me</Typography>
       <Typography variant='h4'>Intro ingeniosa Emanuel Castaño</Typography>    
     </Box>
   )
