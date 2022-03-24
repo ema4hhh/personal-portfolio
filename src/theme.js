@@ -11,11 +11,13 @@ const baseTheme = createTheme({
 })
 
 baseTheme.typography.h1 = {
+  textAlign: "center",
   fontSize: "2.5rem",
   fontFamily: 'JetBrains Mono, monospace',
   fontWeight: "800"
 }
 baseTheme.typography.h4 = {
+  textAlign: "center",
   fontSize: "1.05rem", 
   fontFamily: 'JetBrains Mono, monospace',
 }
