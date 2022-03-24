@@ -12,11 +12,19 @@ import Skills from "./components/Skills"
 import  backgroundImage from "./assets/intro-bg.jpg"
 import Experience from "./components/Experience";
 import { Context } from "./components/Context";
+import Projects from "./components/Projects";
+import BackToTop from "./components/BackTotop";
 
 const App = () => {
   const {
     isDarkTheme,
-    changeTheme
+    changeTheme,
+    loading,
+    error,
+    repos, 
+    phoneNumber,
+    trigger,
+    handleGoUpClick,
   } = useContext(Context);
 
   return (
@@ -28,11 +36,17 @@ const App = () => {
         backgroundSize: "cover",
         backgroundPosition: "center center",
       }}>
-        <NavBar isDarkTheme={isDarkTheme} changeTheme={changeTheme} />
-        <Intro />
+        <NavBar isDarkTheme={isDarkTheme} changeTheme={changeTheme} trigger={trigger} />
+        <Intro trigger={trigger} />
         <About />
         <Skills />
-        <Experience />
+        <Box sx={{ backgroundColor: "white" }}>
+          { error && <p>Algo salió mal</p> }
+          { loading ? <p>Cargando</p> : <Experience loading={loading} error={error} repos={repos} /> }
+          
+        </Box>
+        <Projects />
+        <BackToTop trigger={trigger} handleGoUpClick={handleGoUpClick} />
       </Box>
     </ThemeProvider>
   );
