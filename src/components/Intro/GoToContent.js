@@ -2,16 +2,27 @@ import React from 'react'
 
 import { Box, Fab, Fade, useTheme } from '@mui/material';
 import { KeyboardArrowDown } from '@mui/icons-material';
-import { width } from '@mui/system';
+import styled from '@emotion/styled';
+
+const StyledFab = styled(Fab)`
+  &:hover {
+    background: transparent;
+  }
+  &:active {
+    box-shadow: none
+  }
+`
 
 const GoToContent = ({ trigger }) => {
   const theme = useTheme();
 
   return (
     <Box sx={{ 
-      position: 'fixed', 
-      bottom: 50, 
-      width: "100%"
+      position: 'absolute',
+      width: "100%",
+      bottom: 16,
+      display: "flex",
+      justifyContent: "center"
     }}>
       <Fade in={!trigger} sx={{
         backgroundColor: "transparent",
@@ -19,9 +30,9 @@ const GoToContent = ({ trigger }) => {
         fontSize: "20px",
         color: "white",
       }}>
-        <Fab variant="extended" size='small'>
-          <KeyboardArrowDown style={{height: 60, width: 60}}/>
-        </Fab>
+        <StyledFab disableRipple variant="extended" size='small'>
+          <KeyboardArrowDown sx={{height: 60, width: 60}}/>
+        </StyledFab>
       </Fade>
     </Box>
   )

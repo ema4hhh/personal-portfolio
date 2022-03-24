@@ -1,5 +1,7 @@
 import React, { useContext } from "react";
 
+import { Context } from "./components/Context";
+
 import { Box } from "@mui/material";
 import { ThemeProvider } from '@mui/material/styles';
 import { darkTheme, lightTheme } from './Theme';
@@ -11,9 +13,8 @@ import Skills from "./components/Skills"
 
 import  backgroundImage from "./assets/intro-bg.jpg"
 import Experience from "./components/Experience";
-import { Context } from "./components/Context";
 import Projects from "./components/Projects";
-import BackToTop from "./components/BackTotop";
+import BackToTop from "./components/BackTotop/";
 
 const App = () => {
   const {

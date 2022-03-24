@@ -7,8 +7,6 @@ import { Box, Typography } from '@mui/material';
 import { useTheme } from "@mui/material/styles";
 import GoToContent from './GoToContent';
 
-
-
 const Intro = ({ trigger }) => {
   const theme = useTheme();
 
@@ -32,7 +30,7 @@ const Intro = ({ trigger }) => {
   return (
     <Box id="home" style={{
       position: "relative",
-      height: "100vh",
+      height: "94vh",
       color: "#fff",
     }}>
       <Box style={{
@@ -70,8 +68,8 @@ const Intro = ({ trigger }) => {
             }}></Typography>
           </Box>
         </Box>
-        <GoToContent trigger={trigger}/>
       </Box>
+      <GoToContent trigger={trigger}/>
     </Box>
   )
 }
