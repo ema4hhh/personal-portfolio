@@ -1,13 +1,14 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import axios from 'axios';
 
 const useGetUser = (username) => {
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(true);
+  const repos = useRef();
+  const phoneNumber = useRef();
+  
 
-  let repos;
-  let phoneNumber;
   const URL = `https://api.github.com/users/${username}`;
   useEffect(() => {
     function getStat() {
@@ -18,8 +19,8 @@ const useGetUser = (username) => {
     }
     async function asyncCall() {
       const result = await getStat();
-      repos = result.data.public_repos;
-      phoneNumber = result.data.bio;
+      repos.current = result.data.public_repos;
+      phoneNumber.current = result.data.bio;
       setLoading(false);
     }
     
@@ -30,7 +31,7 @@ const useGetUser = (username) => {
     loading,
     error,
     repos, 
-    phoneNumber
+    phoneNumber,
   }
 }
 
