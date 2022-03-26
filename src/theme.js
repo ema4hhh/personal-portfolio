@@ -21,10 +21,17 @@ baseTheme.typography.h4 = {
   fontSize: "1.05rem", 
   fontFamily: 'JetBrains Mono, monospace',
 }
+baseTheme.typography.h5 = {
+  textAlign: "center",
+  fontSize: "1.5rem", 
+  fontFamily: 'JetBrains Mono, monospace',
+  fontWeight: 700
+}
 
 const darkTheme = createTheme({
   ...baseTheme,
   palette: {
+    mode: "dark",
     primary:  {
       main: "#1e1e1e",
     },
@@ -47,6 +54,7 @@ const darkTheme = createTheme({
 const lightTheme = createTheme({
   ...baseTheme,
   palette: {
+    mode: "light",
     primary: {
       main: "#f5f5f5",
     },
