@@ -1,9 +1,9 @@
 import React from 'react'
 
-import { Box, Fab, Typography, useTheme } from '@mui/material'
+import { Box, Typography, useTheme } from '@mui/material'
 import BookIcon from '@mui/icons-material/Book';
 
-const GitHugStats = ({ repos }) => {
+const GitHubStats = ({ repos }) => {
   const theme = useTheme();
 
   return (
@@ -31,9 +31,7 @@ const GitHugStats = ({ repos }) => {
           width: "75px",
           boxShadow: "0 0 0 10px #e3c5ff",
         }}>
-          <Fab disableFocusRipple disableRipple size='large'>
-            <BookIcon />
-          </Fab>
+          <BookIcon sx={{height: 40, width: 40}}/>
         </Box>
         <Box sx={{
           marginTop: "15px"
@@ -48,4 +46,4 @@ const GitHugStats = ({ repos }) => {
   )
 }
 
-export default GitHugStats
+export default GitHubStats
