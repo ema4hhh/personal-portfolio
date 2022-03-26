@@ -1,5 +1,5 @@
 import { useScrollTrigger } from '@mui/material';
-import React, { createContext, useEffect, useState } from 'react'
+import React, { createContext, useState } from 'react'
 
 import useGetUser from './useGetUser';
 
@@ -11,8 +11,8 @@ const ContextProvider = (props) => {
   const {
     loading,
     error,
-    repos, 
-    phoneNumber
+    repos,
+    phoneNumber,
   } = useGetUser("ema4hhh");
 
   const changeTheme = () => {
@@ -34,7 +34,7 @@ const ContextProvider = (props) => {
     }}
 
   const handleGoToContent = (event) => {
-    const anchor = (event.target.ownerDocument || document).querySelector("#about");
+    const anchor = (event.target.ownerDocument || document).querySelector("#go-to-content-anchor");
     if (anchor) {
       anchor.scrollIntoView({
         behavior: "smooth",
@@ -49,7 +49,7 @@ const ContextProvider = (props) => {
       changeTheme,
       loading,
       error,
-      repos, 
+      repos,
       phoneNumber,
       trigger,
       handleGoUpClick,
