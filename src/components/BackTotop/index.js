@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { Box, Fab, Fade, useTheme } from '@mui/material';
+import { Box, Fab, Slide, useTheme } from '@mui/material';
 import { KeyboardArrowUp } from '@mui/icons-material';
 
 const BackToTop = ({ trigger, handleGoUpClick }) => {
@@ -15,14 +15,14 @@ const BackToTop = ({ trigger, handleGoUpClick }) => {
         right: 16 ,
       }}
     >
-      <Fade in={trigger} sx={{
+      <Slide direction='up' in={trigger} sx={{
           boxShadow: `2px 1px 14px ${theme.palette.secondary.main}`,
         }}
       >
         <Fab color="primary" size="small">
           <KeyboardArrowUp />
         </Fab>
-      </Fade>
+      </Slide>
     </Box>
   )
 }
