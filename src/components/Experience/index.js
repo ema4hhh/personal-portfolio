@@ -1,16 +1,21 @@
 import React from 'react';
 
-import { Box, useTheme } from '@mui/material';
+import { Box, CircularProgress, useTheme } from '@mui/material';
+
+import GitHubStats from "./GitHubStats"
 
 const Experience = ({ loading, error, repos }) => {
   const theme = useTheme();
 
   return (
     <Box id="Experience" sx={{
-      backgroundColor: theme.palette.primary.main,
-      color: theme.palette.fontColor.primary.main
+      display: "flex",
+      backgroundColor: theme.palette.mode === "dark" ? "rgba(100, 51, 202, .6)" : "rgba(147, 112, 219, .6)",
+      color: theme.palette.fontColor.primary.main,
+      alignContent: "center",
+      justifyContent: "center"
     }}>
-      { loading ? <p>Cargando</p> : <p>{repos}</p> }
+      {loading ? <CircularProgress /> : <GitHubStats repos={repos} />}
     </Box>
   )
 }

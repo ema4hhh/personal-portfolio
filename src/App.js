@@ -17,6 +17,7 @@ import Projects from "./components/Projects";
 import BackToTop from "./components/BackTotop/";
 
 const App = () => {
+
   const {
     isDarkTheme,
     changeTheme,
@@ -42,11 +43,10 @@ const App = () => {
         <Intro trigger={trigger} handleGoToContent={handleGoToContent}/>
         <About />
         <Skills />
-        <Box sx={{ backgroundColor: "white" }}>
-          { error && <p>Algo salió mal</p> }
-          { loading ? <p>Cargando</p> : <Experience loading={loading} error={error} repos={repos} /> }
-          
-        </Box>
+
+        { error && <p>Algo salió mal</p> }
+        <Experience loading={loading} error={error} repos={repos} />
+        
         <Projects />
         <BackToTop trigger={trigger} handleGoUpClick={handleGoUpClick} />
       </Box>
