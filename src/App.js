@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 
-import { Context } from "./components/Context";
+import { Context } from "./Context";
 
 import { Box } from "@mui/material";
 import { ThemeProvider } from '@mui/material/styles';
@@ -10,9 +10,6 @@ import NavBar from "./components/NavBar";
 import Intro from "./components/Intro";
 import About from "./components/About";
 import Skills from "./components/Skills"
-
-import  backgroundImage from "./assets/intro-bg.jpg"
-import Experience from "./components/Experience";
 import Projects from "./components/Projects";
 import BackToTop from "./components/BackTotop/";
 
@@ -32,21 +29,11 @@ const App = () => {
 
   return (
     <ThemeProvider theme={isDarkTheme ? darkTheme : lightTheme}>
-      <Box style={{
-        backgroundImage: `url(${backgroundImage})`,
-        backgroundRepeat: "no-repeat",
-        backgroundAttachment: "fixed",
-        backgroundSize: "cover",
-        backgroundPosition: "center center",
-      }}>
+      <Box>
         <NavBar isDarkTheme={isDarkTheme} changeTheme={changeTheme} trigger={trigger} />
         <Intro trigger={trigger} handleGoToContent={handleGoToContent}/>
         <About />
-        <Skills />
-
-        { error && <p>Algo salió mal</p> }
-        <Experience loading={loading} error={error} repos={repos} />
-        
+        <Skills />        
         <Projects />
         <BackToTop trigger={trigger} handleGoUpClick={handleGoUpClick} />
       </Box>

@@ -12,18 +12,12 @@ const NavBar = ({ setIsDarkTheme, isDarkTheme, changeTheme, trigger }) => {
   const theme = useTheme();
 
   return (
-    <Box sx={{ 
-      flexGrow: 1,
-      backgroundColor: "rgba(0, 0, 0, 0.6)",
-    }}>
-      <AppBar position="fixed" style={ 
-        trigger ? {backgroundColor: theme.palette.navOnScroll} 
-        : {
-            backgroundColor: "transparent", 
-            color: theme.navFontColor, 
-            boxShadow: theme.navShadow
-          }
-        }>
+    <Box>
+      <AppBar elevation={1} position="fixed" sx={{
+        backgrounColor: theme.palette.primary.main,
+        color: theme.palette.fontColor.primary.main,
+        boxShadow: "none"
+      }}>
         <Toolbar>
           <Typography variant="h6" component="div" sx={{ 
               flexGrow: 1, 

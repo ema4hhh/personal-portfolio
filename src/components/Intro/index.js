@@ -15,11 +15,8 @@ const Intro = ({ trigger, handleGoToContent }) => {
 
   useEffect(() => {
     const typed = new Typed(el.current, {
-      strings: ["Curious", "Smart", "Gentle", "Serious"],
-      typeSpeed: 100,
-			loop: true,
-			backDelay: 1000,
-			backSpeed: 50,
+      strings: ["<b>I'm a passionate and young developer</b>, <br /> working mainly in web technologies, delivering quality work."],
+      typeSpeed: 50,
       cursorChar: "_",
     });
     return () => {
@@ -31,18 +28,10 @@ const Intro = ({ trigger, handleGoToContent }) => {
     <Box id="home" style={{
       position: "relative",
       height: "94vh",
-      color: "#fff",
+      width: "100%",
+      backgroundColor: theme.palette.primary.main,
+      color: theme.palette.fontColor.primary.main,
     }}>
-      <Box style={{
-        backgroundColor: "rgba(0, 0, 0, 0.6)",
-        position: "absolute",
-        top: "0px",
-        left: "0px",
-        padding: "0px",
-        height: "100%",
-        width: "100%",
-        opacity: .9,
-      }}></Box>
       <Box style={{
         width: "100%",
         height: "100%",
@@ -54,18 +43,35 @@ const Intro = ({ trigger, handleGoToContent }) => {
           display: "table-cell",
           verticalAlign: "middle",
         }}>
-          <Box>
+          <Box sx={{
+            display: "inline-block",
+            textAlign: "start"
+          }}>
             <Typography style={{
-            color: "#fff",
-            fontWeight: 600,
-            fontSize: "3rem",
+              fontWeight: 500,
+              fontSize: "3.5rem",
+              marginBottom: "20px"
             }}>
-              Emanuel Castaño
+              Hi, I'm Emanuel
             </Typography>
-            <Typography ref={el} style={{
-              fontSize: "1.45rem",
-              display: "inline"
-            }}></Typography>
+            <Typography variant='h5' sx={{
+              color: "rgb(141,154,166)",
+              fontSize: "1.5rem",
+              marginBottom: "20px"
+            }}>
+              FULLSTACK DEVELOPER
+            </Typography>
+            <Box sx={{
+              width: "600px"
+            }}>
+              <Typography ref={el} style={{
+                color: "rgb(141,154,166)",
+                fontSize: "1.20rem",
+                display: "inline",
+                lineHeight: "1.25"
+              }}></Typography>
+            </Box>
+            
           </Box>
         </Box>
       </Box>

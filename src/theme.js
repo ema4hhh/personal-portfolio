@@ -7,7 +7,6 @@ const baseTheme = createTheme({
   },
   navColor: "transparent",
   navFontColor: "white",
-  navShadow: "none",
 })
 
 baseTheme.typography.h1 = {
@@ -22,7 +21,7 @@ baseTheme.typography.h4 = {
   fontFamily: 'JetBrains Mono, monospace',
 }
 baseTheme.typography.h5 = {
-  textAlign: "center",
+  textAlign: "start",
   fontSize: "1.5rem", 
   fontFamily: 'JetBrains Mono, monospace',
   fontWeight: 700
@@ -46,8 +45,6 @@ const darkTheme = createTheme({
         main: "#000000",
       }
     },
-    navFontColor: "white",
-    navOnScroll: "#0000bd"
   },
 })
 
@@ -69,8 +66,6 @@ const lightTheme = createTheme({
         main: "#ffffff",
       }
     },
-    navFontColor: "black",
-    navOnScroll: "#e4e4ff"
   },
 })
 
