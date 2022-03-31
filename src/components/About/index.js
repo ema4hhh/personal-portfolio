@@ -13,7 +13,8 @@ const Intro = () => {
       backgroundColor: theme.palette.primary.main,
       color: theme.palette.fontColor.primary.main,
       }}>
-      <Toolbar id="go-to-content-anchor" />
+      <Toolbar id="go-to-content" />
+
       <Box sx={{
         width: "90vh",
         margin: "auto",
