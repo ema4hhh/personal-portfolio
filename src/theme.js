@@ -5,8 +5,6 @@ const baseTheme = createTheme({
     fontFamily: "JetBrains Mono, monospace",
     fonySize: 14,
   },
-  navColor: "transparent",
-  navFontColor: "white",
 })
 
 baseTheme.typography.h1 = {
@@ -25,6 +23,12 @@ baseTheme.typography.h5 = {
   fontSize: "1.5rem", 
   fontFamily: 'JetBrains Mono, monospace',
   fontWeight: 700
+}
+baseTheme.typography.h3 = {
+  textAlign: "start",
+  fontSize: "1.3rem", 
+  fontFamily: 'JetBrains Mono, monospace',
+  fontWeight: 500
 }
 
 const darkTheme = createTheme({
