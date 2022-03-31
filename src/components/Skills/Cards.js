@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
-import { Button, Card, CardActions, CardContent, Collapse, Paper, Stack, useTheme } from '@mui/material';
-import { KeyboardArrowDown } from '@mui/icons-material';
+import { Box, Card, CardActions, CardContent, Collapse, IconButton, Paper, Stack, Typography, useTheme, Divider } from '@mui/material';
+import { Brush, DataObject, KeyboardArrowDown, SmartToy, Storage } from '@mui/icons-material';
 
 const Cards = ({ cardName, skill }) => {
   const theme = useTheme();
@@ -12,23 +12,58 @@ const Cards = ({ cardName, skill }) => {
     setExpanded(!expanded)
   }
 
+  const ShowIcon = () => {
+    if(cardName === "Frontend"){
+      return <Brush color='info' sx={{height: 35, width: 35, marginRight: "15px"}} />
+    } else if(cardName === "Backend"){
+      return <DataObject  color='info' sx={{height: 35, width: 35, marginRight: "15px"}} />
+    } else if(cardName === "Databases"){
+      return <Storage  color='info' sx={{height: 35, width: 35, marginRight: "15px"}} />
+    } else {
+      return <SmartToy  color='info' sx={{height: 35, width: 35, marginRight: "15px"}} />
+    }
+  }
+
   return (
-    <Card>
-      <CardContent color={theme.palette.fontColor.primary.main}>
-        {cardName}
-      </CardContent>
-      <CardActions>
-        <Button onClick={handleExpandContent}><KeyboardArrowDown /></Button>
-      </CardActions>
+    <Card sx={{boxShadow: "none"}}>
+      <Box sx={{display: "flex", alignItems: "flex-start", marginTop: "20px"}}>
+        <CardContent color={theme.palette.fontColor.primary.main}>
+          <Typography variant='h3' sx={{display: "flex", fontWeight: 600}}>
+            <ShowIcon />
+            {cardName}
+          </Typography>
+        </CardContent>
+        <CardActions sx={{marginLeft: "auto"}}>
+          <IconButton onClick={handleExpandContent} disableRipple>
+            <KeyboardArrowDown color="info" sx={expanded ? {height: 40, width: 40, transition: ".4s ease-in-out", transform: "rotate(180deg)"} : {height: 40, width: 40, transition: ".4s ease-in-out", transform: "rotate(0deg)"}} />
+          </IconButton>
+        </CardActions>
+      </Box>
       <Collapse in={expanded} timeout="auto" unmountOnExit>
-        <CardContent>
-          <Stack spacing={2}>
-            <Paper sx={{
-              backgroundColor: theme.palette.secondary.main
-            }}>
-              {skill}
-            </Paper>
-          </Stack>
+        <CardContent sx={{
+          marginLeft: "52px",
+          marginRight: "12px"
+        }}>
+          {skill.map((item, i) => (
+            <Stack 
+              key={i} s
+              pacing={10}
+            >
+              <Paper elevation={0} sx={{
+                backgroundColor: theme.palette.primary.main,
+                marginBottom: "20px"
+              }}>
+                <Typography variant='h3'>
+                  {item}
+                </Typography>
+                <Divider sx={{
+                  borderTop: "2px solid rgb(10, 157, 220)",
+                  marginTop: "5px"
+                }} />
+              </Paper>
+            </Stack>
+          ))}
+          
         </CardContent>
       </Collapse>
     </Card>

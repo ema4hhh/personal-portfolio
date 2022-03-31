@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { Box, Grid, Typography, useTheme, Paper } from '@mui/material';
+import { Box, Grid, Typography, useTheme, Toolbar } from '@mui/material';
 
 import Cards from './Cards';
 
@@ -12,26 +12,27 @@ const Skills = () => {
       backgroundColor: theme.palette.primary.main,
       color: theme.palette.fontColor.primary.main,
       }}>
+      <Toolbar id="go-to-skills" />
+
       <Box sx={{
         width: "90vh",
         margin: "auto",
       }}>  
-        <Typography variant='h1'>
+        <Typography variant='h1' sx={{marginBottom: "3vh"}}>
           Skills
         </Typography>
-        <Typography variant='h4'>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</Typography>
         <Grid container direction="row" spacing={2}>
-          <Grid container item xs={6} columnSpacing={5} justifyContent="center">
-            <Cards cardName={"Frontend"} skill={"React"}/>
+          <Grid item xs={6} columnSpacing={5} justifyContent="center">
+            <Cards cardName={"Frontend"} skill={["JavaScript", "Html", "Css", "React", "MaterialUI"]} />
           </Grid>
-          <Grid container item xs={6} columnSpacing={5} justifyContent="center">
-            Backend
+          <Grid item xs={6} columnSpacing={5} justifyContent="center">
+            <Cards cardName={"Backend"} skill={["Express", "Python"]} />
           </Grid>
-          <Grid container item xs={6} columnSpacing={5} justifyContent="center">
-            Database
+          <Grid item xs={6} columnSpacing={5} justifyContent="center">
+            <Cards cardName={"Databases"} skill={["PostgreSQL", "SQL"]}  />
           </Grid>
-          <Grid container item xs={6} columnSpacing={5} justifyContent="center">
-            
+          <Grid item xs={6} columnSpacing={5} justifyContent="center">
+            <Cards cardName={"Artificial Inteligence"} skill={["Python"]} />
           </Grid>
         </Grid>
       </Box>
