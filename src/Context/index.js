@@ -34,7 +34,7 @@ const ContextProvider = (props) => {
     }}
 
   const handleGoToContent = (event) => {
-    const anchor = (event.target.ownerDocument || document).querySelector("#go-to-content-anchor");
+    const anchor = (event.target.ownerDocument || document).querySelector("#go-to-content");
     if (anchor) {
       anchor.scrollIntoView({
         behavior: "smooth",
