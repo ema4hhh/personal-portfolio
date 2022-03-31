@@ -9,7 +9,6 @@ import { useTheme } from "@mui/material/styles";
 import GoToContent from './GoToContent';
 
 import MyImage from '../../assets/asd.png';
-import { height } from '@mui/system';
 
 const Intro = ({ trigger, handleGoToContent }) => {
   const theme = useTheme();
@@ -18,9 +17,9 @@ const Intro = ({ trigger, handleGoToContent }) => {
 
   useEffect(() => {
     const typed = new Typed(el.current, {
-      strings: ["<b>I'm a passionate and young developer</b>, <br /> working mainly in web technologies,<br /> delivering quality work."],
+      strings: ["I'm a passionate and young developer, <br /> working mainly in web technologies."],
       typeSpeed: 50,
-      cursorChar: "_",
+      showCursor: false
     });
     return () => {
       typed.destroy();
@@ -44,13 +43,13 @@ const Intro = ({ trigger, handleGoToContent }) => {
       >
         <Grid item xs={6}>
           <Box sx={{
-            marginLeft: "45vh"
+            marginLeft: "45vh",
           }}>
             <Box>
               <Typography style={{
                 fontWeight: 500,
                 fontSize: "3.5rem",
-                marginBottom: "20px"
+                marginBottom: "20px",
               }}>
                 Hi, I'm Emanuel
               </Typography>
@@ -63,13 +62,13 @@ const Intro = ({ trigger, handleGoToContent }) => {
               </Typography>
             </Box>
             <Box sx={{
-              width: "600px"
+              width: "600px",
+              display: "inline-block"
             }}>
               <Typography ref={el} style={{
                 color: "rgb(141,154,166)",
                 fontSize: "1.20rem",
-                display: "inline",
-                lineHeight: "1.25"
+                lineHeight: "1.25",
               }}></Typography>
             </Box>
           </Box>
