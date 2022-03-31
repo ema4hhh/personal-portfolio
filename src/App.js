@@ -33,7 +33,7 @@ const App = () => {
         <NavBar isDarkTheme={isDarkTheme} changeTheme={changeTheme} trigger={trigger} />
         <Intro trigger={trigger} handleGoToContent={handleGoToContent}/>
         <About />
-        <Skills />        
+        <Skills />
         <Projects />
         <BackToTop trigger={trigger} handleGoUpClick={handleGoUpClick} />
       </Box>
