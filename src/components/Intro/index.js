@@ -51,7 +51,7 @@ const Intro = ({ trigger, handleGoToContent }) => {
                 fontSize: "3.5rem",
                 marginBottom: "20px",
               }}>
-                Hi, I'm Emanuel
+                Hi! I'm Emanuel
               </Typography>
               <Typography variant='h5' sx={{
                 color: "rgb(141,154,166)",
