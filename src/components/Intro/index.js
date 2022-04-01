@@ -17,7 +17,7 @@ const Intro = ({ trigger, handleGoToContent }) => {
 
   useEffect(() => {
     const typed = new Typed(el.current, {
-      strings: ["I'm a passionate and young developer, <br /> working mainly in web technologies."],
+      strings: ["I'm Emanuel, Fullstack Developer"],
       typeSpeed: 50,
       showCursor: false
     });
@@ -52,13 +52,6 @@ const Intro = ({ trigger, handleGoToContent }) => {
                 marginBottom: "20px",
               }}>
                 Hey! You found my portfolio
-              </Typography>
-              <Typography variant='h5' sx={{
-                color: "rgb(141,154,166)",
-                fontSize: "1.5rem",
-                marginBottom: "20px"
-              }}>
-                FULLSTACK DEVELOPER
               </Typography>
             </Box>
             <Box sx={{
