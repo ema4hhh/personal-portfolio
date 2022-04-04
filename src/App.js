@@ -1,5 +1,7 @@
 import React, { useContext } from "react";
 
+import LazyLoad from 'react-lazyload';
+
 import { Context } from "./Context";
 
 import { Box } from "@mui/material";
@@ -33,8 +35,10 @@ const App = () => {
         <NavBar isDarkTheme={isDarkTheme} changeTheme={changeTheme} trigger={trigger} />
         <Intro trigger={trigger} handleGoToContent={handleGoToContent}/>
         <About />
-        <Skills />
-        <Projects />
+        <LazyLoad>
+          <Skills />
+        </LazyLoad>
+        {/* <Projects /> */}
         <BackToTop trigger={trigger} handleGoUpClick={handleGoUpClick} />
       </Box>
     </ThemeProvider>
