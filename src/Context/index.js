@@ -13,7 +13,7 @@ const ContextProvider = (props) => {
     error,
     repos,
     phoneNumber,
-  } = useGetUser("ema4hhh");
+  } = useGetUser();
 
   const changeTheme = () => {
     setIsDarkTheme(!isDarkTheme);
