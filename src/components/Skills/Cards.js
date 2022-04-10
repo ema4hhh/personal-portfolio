@@ -46,8 +46,8 @@ const Cards = ({ cardName, skill }) => {
         }}>
           {skill.map((item, i) => (
             <Stack 
-              key={i} s
-              pacing={10}
+              key={i}
+              spacing={10}
             >
               <Paper elevation={0} sx={{
                 backgroundColor: theme.palette.primary.main,
