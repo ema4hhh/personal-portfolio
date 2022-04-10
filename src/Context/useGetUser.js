@@ -20,7 +20,6 @@ const useGetUser = () => {
       repos.current = result.data.public_repos;
       phoneNumber.current = result.data.bio;
       setLoading(false);
-      console.log(result)
     }
     
     return asyncCall()
