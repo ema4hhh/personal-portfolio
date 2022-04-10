@@ -38,7 +38,9 @@ const App = () => {
         <LazyLoad>
           <Skills />
         </LazyLoad>
-        {/* <Projects /> */}
+        <LazyLoad>
+          <Projects />
+        </LazyLoad>
         <BackToTop trigger={trigger} handleGoUpClick={handleGoUpClick} />
       </Box>
     </ThemeProvider>
