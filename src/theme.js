@@ -30,6 +30,15 @@ baseTheme.typography.h3 = {
   fontFamily: 'JetBrains Mono, monospace',
   fontWeight: 500
 }
+baseTheme.typography.h6 = {
+  textAlign: "start",
+  fontSize: ".7rem",
+  fontFamily: 'JetBrains Mono, monospace',
+  fontWeight: 300,
+  marginLeft: "10px",
+  marginTop: "5px",
+  color: "rgb(120,120,120)"
+}
 
 const darkTheme = createTheme({
   ...baseTheme,
