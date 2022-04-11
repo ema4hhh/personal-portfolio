@@ -5,20 +5,20 @@ import axios from 'axios';
 const useGetUser = () => {
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(true);
-  const repos = useRef();
-  const phoneNumber = useRef();
+  const repos = useRef([]);
   
   useEffect(() => {
     function getStat() {
       return new Promise((resolve, reject) => {
-        const response = axios.get(`https://api.github.com/users/ema4hhh`);
+        const response = axios.get(`https://api.github.com/users/ema4hhh/repos`);
         resolve(response);
       })
     }
     async function asyncCall() {
       const result = await getStat();
-      repos.current = result.data.public_repos;
-      phoneNumber.current = result.data.bio;
+      result.data.filter((e) => e.name !== "ema4hhh").map((e) => {
+        return repos.current.push(e)
+      })
       setLoading(false);
     }
     
@@ -26,10 +26,9 @@ const useGetUser = () => {
   }, [])
 
   return {
-    loading,
     error,
-    repos, 
-    phoneNumber,
+    repos,
+    loading,
   }
 }
 
