@@ -16,17 +16,18 @@ import Projects from "./components/Projects";
 import BackToTop from "./components/BackTotop/";
 
 const App = () => {
-
   const {
     isDarkTheme,
     changeTheme,
-    loading,
     error,
-    repos, 
-    phoneNumber,
+    loading,
+    repos,
     trigger,
     handleGoUpClick,
     handleGoToContent,
+    handleRightRepoClick,
+    handleLeftRepoClick,
+    currentRepo,
   } = useContext(Context);
 
   return (
@@ -39,7 +40,7 @@ const App = () => {
           <Skills />
         </LazyLoad>
         <LazyLoad>
-          <Projects />
+          <Projects repos={repos.current} loading={loading} handleRightRepoClick={handleRightRepoClick} handleLeftRepoClick={handleLeftRepoClick} currentRepo={currentRepo} />
         </LazyLoad>
         <BackToTop trigger={trigger} handleGoUpClick={handleGoUpClick} />
       </Box>
