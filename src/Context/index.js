@@ -1,5 +1,5 @@
 import { useScrollTrigger } from '@mui/material';
-import React, { createContext, useState } from 'react'
+import React, { createContext, useRef, useState } from 'react'
 
 import useGetUser from './useGetUser';
 
@@ -7,17 +7,28 @@ const Context = createContext();
 
 const ContextProvider = (props) => {
   const [isDarkTheme, setIsDarkTheme] = useState(true);
+  const [currentRepo, setCurrentRepo] = useState(5);
 
   const {
-    loading,
     error,
     repos,
-    phoneNumber,
+    loading,
   } = useGetUser();
 
   const changeTheme = () => {
     setIsDarkTheme(!isDarkTheme);
   };
+
+  const handleRightRepoClick = () => {
+    if(currentRepo > repos.length-1) {
+      return setCurrentRepo(currentRepo+1)
+    } else return setCurrentRepo(0)
+  }
+  const handleLeftRepoClick = () => {
+    if(currentRepo > 0) {
+      return setCurrentRepo(currentRepo-1)
+    } else return setCurrentRepo(repos.length-1)
+  }
 
   const trigger = useScrollTrigger({
     threshold: 20,
@@ -47,13 +58,15 @@ const ContextProvider = (props) => {
     <Context.Provider value={{
       isDarkTheme,
       changeTheme,
-      loading,
       error,
       repos,
-      phoneNumber,
+      loading,
       trigger,
       handleGoUpClick,
       handleGoToContent,
+      handleRightRepoClick,
+      handleLeftRepoClick,
+      currentRepo,
     }}>
       {props.children}
     </Context.Provider>
