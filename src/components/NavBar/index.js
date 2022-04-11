@@ -24,9 +24,10 @@ const NavBar = ({ setIsDarkTheme, isDarkTheme, changeTheme, trigger }) => {
           width: "130vh",
           margin: "auto"
         }}>
-          <Typography variant="h6" sx={{ 
+          <Typography sx={{ 
               flexGrow: 1, 
-              fontWeight: "600" 
+              fontWeight: "600",
+              fontSize: "1.3rem"
             }}>
             {"<ECC />"}
           </Typography>
