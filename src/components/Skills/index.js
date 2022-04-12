@@ -17,7 +17,6 @@ const Skills = () => {
       <Box sx={{
         width: "90vh",
         margin: "auto",
-        backgroundColor: "background."
       }}>  
         <Typography variant='h1' sx={{marginBottom: "3vh"}}>
           Skills
