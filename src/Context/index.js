@@ -1,11 +1,8 @@
-import React, { createContext, useEffect, useMemo, useRef, useState } from 'react'
+import React, { createContext, useState } from 'react'
 
 import { useScrollTrigger } from '@mui/material';
 
 import useGetUser from './useGetUser';
-import gsap from 'gsap';
-import ScrollTrigger from 'gsap-trial/ScrollTrigger';
-import ScrollSmoother from 'gsap-trial/ScrollSmoother';
 
 const Context = createContext();
 
@@ -53,7 +50,7 @@ const ContextProvider = (props) => {
     }
   }
 
-  const [mode, setMode] = useState('dark');
+  const [mode, setMode] = useState('light');
   const colorMode = () => {
     setMode((prevMode) => (prevMode === 'light' ? 'dark' : 'light'));
   }
