@@ -25,7 +25,7 @@ const Cards = ({ cardName, skill }) => {
   }
 
   return (
-    <Card sx={{boxShadow: "none"}}>
+    <Card sx={{boxShadow: "none", backgroundColor: "background.default"}}>
       <Box sx={{display: "flex", alignItems: "flex-start", marginTop: "20px"}}>
         <CardContent color={"text.primary"}>
           <Typography variant='h3' sx={{display: "flex", fontWeight: 600}}>
