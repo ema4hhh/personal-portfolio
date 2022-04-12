@@ -1,41 +1,10 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef } from 'react';
 
 import { gsap } from "gsap";
 
 import { Box, Paper, Typography, useTheme } from '@mui/material';
 
-const OverFlowText = ({ text }) => {  
-  const [showMore, setShowMore] = useState(false);
-  
-  const handleShowMore = () => {
-    setShowMore(!showMore)
-  }
-  
-  return (
-    showMore 
-    ? <Typography variant="h4">
-        {text} 
-        <Typography 
-          variant='button' 
-          color="rgb(100, 100, 100)" 
-          onClick={handleShowMore} 
-          display="block">
-          Show less
-        </Typography>
-      </Typography>
-    : <Typography variant="h4">
-        {text.split("", 79)}... 
-        <Typography 
-          variant='button' 
-          color="rgb(100, 100, 100)" 
-          onClick={handleShowMore} 
-          display="block">
-          Show more
-        </Typography>
-      </Typography>
-  )
-}
-
+import { OverFlowText, Buttons } from './SubItems';
 
 const LeftItem = ({ title, description, fork, handleClick }) => {
   const theme = useTheme()
@@ -53,7 +22,7 @@ const LeftItem = ({ title, description, fork, handleClick }) => {
       boxShadow: "0 8px 3px rgb(0 0 0 / 25%)",
       transform: "scaleY(.9)",
       }}>
-      <Paper ref={itemRef} onClick={handleClick} ref={itemRef} sx={{
+      <Paper ref={itemRef} onClick={handleClick} sx={{
         display: "absolute",
         textAlign: "center",
         color: "text.secondary",
@@ -76,7 +45,7 @@ const LeftItem = ({ title, description, fork, handleClick }) => {
         {
         description.length > 80 
         ? <OverFlowText text={description}/> 
-        : <Typography variant='h4'>{description}</Typography>
+        : <Typography variant='h4' marginLeft={"10px"} marginRight={"10px"}>{description}</Typography>
         }
         {
         fork 
@@ -127,7 +96,7 @@ const CenterItem = ({ title, description, fork }) => {
         {
         description.length > 80 
         ? <OverFlowText text={description}/> 
-        : <Typography variant='h4'>{description}</Typography>
+        : <Typography variant='h4' marginLeft={"10px"} marginRight={"10px"}>{description}</Typography>
         }
         {
         fork 
@@ -135,6 +104,7 @@ const CenterItem = ({ title, description, fork }) => {
         : null
         }
       </Paper>
+      <Buttons languages={["Javascript", "Python"]} />
     </Box>
   )
 }
@@ -155,7 +125,7 @@ const RightItem = ({ title, description, fork, handleClick }) => {
       boxShadow: "0 8px 3px rgb(0 0 0 / 25%)",
       transform: "scaleY(.9)",
       }}>
-      <Paper ref={itemRef} onClick={handleClick} ref={itemRef} sx={{
+      <Paper ref={itemRef} onClick={handleClick} sx={{
         display: "absolute",
         textAlign: "center",
         color: "text.secondary",
@@ -177,7 +147,7 @@ const RightItem = ({ title, description, fork, handleClick }) => {
         {
         description.length > 80 
         ? <OverFlowText text={description}/> 
-        : <Typography variant='h4'>{description}</Typography>
+        : <Typography variant='h4' marginLeft={"10px"} marginRight={"10px"}>{description}</Typography>
         }
         {
         fork 
