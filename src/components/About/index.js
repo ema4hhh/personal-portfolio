@@ -10,8 +10,8 @@ const Intro = () => {
 
   return (
     <Box id="about" sx={{
-      backgroundColor: theme.palette.primary.main,
-      color: theme.palette.fontColor.primary.main,
+      backgroundColor: "background.default",
+      color: "text.primary",
       }}>
       <Toolbar id="go-to-content" />
 

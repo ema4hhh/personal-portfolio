@@ -1,13 +1,16 @@
+import React, { createContext, useEffect, useMemo, useRef, useState } from 'react'
+
 import { useScrollTrigger } from '@mui/material';
-import React, { createContext, useRef, useState } from 'react'
 
 import useGetUser from './useGetUser';
+import gsap from 'gsap';
+import ScrollTrigger from 'gsap-trial/ScrollTrigger';
+import ScrollSmoother from 'gsap-trial/ScrollSmoother';
 
 const Context = createContext();
 
 const ContextProvider = (props) => {
-  const [isDarkTheme, setIsDarkTheme] = useState(true);
-  const [currentRepo, setCurrentRepo] = useState(5);
+  const [currentRepo, setCurrentRepo] = useState(0);
 
   const {
     error,
@@ -15,19 +18,15 @@ const ContextProvider = (props) => {
     loading,
   } = useGetUser();
 
-  const changeTheme = () => {
-    setIsDarkTheme(!isDarkTheme);
-  };
-
   const handleRightRepoClick = () => {
-    if(currentRepo > repos.length-1) {
-      return setCurrentRepo(currentRepo+1)
-    } else return setCurrentRepo(0)
+    if(currentRepo === repos.current.length-1) {
+      return setCurrentRepo(0)
+    } else return setCurrentRepo(currentRepo+1)
   }
   const handleLeftRepoClick = () => {
     if(currentRepo > 0) {
       return setCurrentRepo(currentRepo-1)
-    } else return setCurrentRepo(repos.length-1)
+    } else return setCurrentRepo(repos.current.length-1)
   }
 
   const trigger = useScrollTrigger({
@@ -54,10 +53,13 @@ const ContextProvider = (props) => {
     }
   }
 
+  const [mode, setMode] = useState('dark');
+  const colorMode = () => {
+    setMode((prevMode) => (prevMode === 'light' ? 'dark' : 'light'));
+  }
+
   return (
     <Context.Provider value={{
-      isDarkTheme,
-      changeTheme,
       error,
       repos,
       loading,
@@ -67,6 +69,8 @@ const ContextProvider = (props) => {
       handleRightRepoClick,
       handleLeftRepoClick,
       currentRepo,
+      colorMode,
+      mode,
     }}>
       {props.children}
     </Context.Provider>

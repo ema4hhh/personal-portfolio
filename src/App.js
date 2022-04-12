@@ -1,13 +1,15 @@
-import React, { useContext } from "react";
+import React, { useContext, useMemo } from "react";
 
 import LazyLoad from 'react-lazyload';
 
 import { Context } from "./Context";
 
-import { Box } from "@mui/material";
+// MUI
+import { Box, createTheme } from "@mui/material";
 import { ThemeProvider } from '@mui/material/styles';
-import { darkTheme, lightTheme } from './Theme';
+import { getDesignTokens } from './Theme';
 
+// Components
 import NavBar from "./components/NavBar";
 import Intro from "./components/Intro";
 import About from "./components/About";
@@ -15,10 +17,10 @@ import Skills from "./components/Skills"
 import Projects from "./components/Projects";
 import BackToTop from "./components/BackTotop/";
 
+
 const App = () => {
+
   const {
-    isDarkTheme,
-    changeTheme,
     error,
     loading,
     repos,
@@ -28,12 +30,21 @@ const App = () => {
     handleRightRepoClick,
     handleLeftRepoClick,
     currentRepo,
+    colorMode,
+    mode,
   } = useContext(Context);
 
+  const theme = useMemo(
+    () =>
+      createTheme(getDesignTokens(mode)),
+    [mode],
+  );
+  
+
   return (
-    <ThemeProvider theme={isDarkTheme ? darkTheme : lightTheme}>
-      <Box>
-        <NavBar isDarkTheme={isDarkTheme} changeTheme={changeTheme} trigger={trigger} />
+    <ThemeProvider theme={theme}>
+      <Box sx={{backgroundColor: "background.default"}}>
+        <NavBar isDarkTheme={mode} changeTheme={colorMode} loading={loading} />
         <Intro trigger={trigger} handleGoToContent={handleGoToContent}/>
         <About />
         <LazyLoad>

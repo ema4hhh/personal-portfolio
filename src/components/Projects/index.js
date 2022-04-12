@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import { LeftItem, CenterItem, RightItem } from './Items';
 
@@ -80,13 +80,13 @@ const Projects = ({ repos, loading, handleRightRepoClick, handleLeftRepoClick, c
 
   return (
     <Box sx={{
-      backgroundColor: theme.palette.primary.main,
-      color: theme.palette.fontColor.primary.main,
+      backgroundColor: "background.default",
+      color: "text.primary",
       }}>
       <Toolbar id="go-to-projects" />
       
       <Typography sx={{marginBottom: "3vh"}} id="projects" variant='h1'>My Projects</Typography>
-      {loading ? <p>Cargando...</p> 
+      {loading ? null 
         : <Item repos={repos} handleRightRepoClick={handleRightRepoClick} handleLeftRepoClick={handleLeftRepoClick} currentRepo={currentRepo} />
       }
       

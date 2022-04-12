@@ -1,18 +1,8 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
-import { Box, Button, Paper, Typography, useTheme } from '@mui/material';
-import { styled } from '@mui/styles';
+import { gsap } from "gsap";
 
-const Item = styled(Paper)(({ theme }) => ({
-  ...theme.palette.secondary.main,
-  display: "absolute",
-  textAlign: "center",
-  color: theme.palette.fontColor.secondary.main,
-  width: "300px",
-  minHeight: "300px",
-  lineHeight: '300%',
-  backgroundColor: theme.palette.secondary.main,
-}))
+import { Box, Paper, Typography, useTheme } from '@mui/material';
 
 const OverFlowText = ({ text }) => {  
   const [showMore, setShowMore] = useState(false);
@@ -50,19 +40,50 @@ const OverFlowText = ({ text }) => {
 const LeftItem = ({ title, description, fork, handleClick }) => {
   const theme = useTheme()
 
+  const itemRef = useRef();
+
+  useEffect(() => {
+    gsap.fromTo(itemRef.current, {x: 300}, {x: 0, duration: .5});
+  }, [handleClick]);
+
   return (
     <Box sx={{
       filter: "blur(2.5px)", 
-      backgroundColor: theme.palette.primary.main,
+      backgroundColor: "background.default",
       boxShadow: "0 8px 3px rgb(0 0 0 / 25%)",
       transform: "scaleY(.9)",
       }}>
-      <Item onClick={handleClick}>
-        <Typography variant="h5" textAlign={"center"} sx={{marginBottom: "20px"}}>{title}</Typography>
-        <img src='https://repository-images.githubusercontent.com/452071216/1f2b1a80-1539-4221-bb96-030dad7e1aea' width={200} alt="hmm, something's missing here" />
-        {description.length > 80 ? <OverFlowText text={description}/> : <Typography>{description}</Typography>}
-        {fork ? <Typography variant='h6'>{"(This is a colaboration)"}</Typography> : null}
-      </Item>
+      <Paper ref={itemRef} onClick={handleClick} ref={itemRef} sx={{
+        display: "absolute",
+        textAlign: "center",
+        color: "text.secondary",
+        width: "300px",
+        minHeight: "300px",
+        lineHeight: '300%',
+      }}>
+        <Typography 
+          variant="h5" 
+          textAlign={"center"} 
+          sx={{marginBottom: "20px"}}
+        >
+          {title}
+        </Typography>
+        <img 
+          src='https://repository-images.githubusercontent.com/452071216/1f2b1a80-1539-4221-bb96-030dad7e1aea' 
+          width={200} 
+          alt="hmm, something's missing here" 
+        />
+        {
+        description.length > 80 
+        ? <OverFlowText text={description}/> 
+        : <Typography variant='h4'>{description}</Typography>
+        }
+        {
+        fork 
+        ? <Typography variant='h6'>{"(This is a colaboration)"}</Typography> 
+        : null
+        }
+      </Paper>
     </Box>
   )
 }
@@ -70,19 +91,50 @@ const LeftItem = ({ title, description, fork, handleClick }) => {
 const CenterItem = ({ title, description, fork }) => {
   const theme = useTheme()
 
+  const itemRef = useRef();
+
+  useEffect(() => {
+    gsap.fromTo(itemRef.current, {opacity: 0}, {opacity: 1, duration: 1});
+  }, [title]);
+
   return (
     <Box sx={{
       position: "absolute", 
       zIndex: 1,
-      backgroundColor: theme.palette.primary.main,
+      backgroundColor: "background.default",
       boxShadow: "0 8px 3px rgb(0 0 0 / 25%)",
       }}>
-      <Item>
-        <Typography variant="h5" textAlign={"center"} sx={{marginBottom: "20px"}}>{title}</Typography>
-        <img src='https://repository-images.githubusercontent.com/452071216/1f2b1a80-1539-4221-bb96-030dad7e1aea' width={200} alt="hmm, something's missing here" />
-        {description.length > 80 ? <OverFlowText text={description}/> : <Typography>{description}</Typography>}
-        {fork ? <Typography variant='h6'>{"(This is a colaboration)"}</Typography> : null}
-      </Item>
+      <Paper ref={itemRef} sx={{
+        display: "absolute",
+        textAlign: "center",
+        color: "text.secondary",
+        width: "300px",
+        minHeight: "300px",
+        lineHeight: '300%',
+      }}>
+        <Typography 
+          variant="h5" 
+          textAlign={"center"} 
+          sx={{marginBottom: "20px"}}
+        >
+          {title}
+        </Typography>
+        <img 
+          src='https://repository-images.githubusercontent.com/452071216/1f2b1a80-1539-4221-bb96-030dad7e1aea' 
+          width={200} 
+          alt="hmm, something's missing here" 
+        />
+        {
+        description.length > 80 
+        ? <OverFlowText text={description}/> 
+        : <Typography variant='h4'>{description}</Typography>
+        }
+        {
+        fork 
+        ? <Typography variant='h6'>{"(This is a colaboration)"}</Typography> 
+        : null
+        }
+      </Paper>
     </Box>
   )
 }
@@ -90,19 +142,49 @@ const CenterItem = ({ title, description, fork }) => {
 const RightItem = ({ title, description, fork, handleClick }) => {
   const theme = useTheme()
 
+  const itemRef = useRef();
+
+  useEffect(() => {
+    gsap.fromTo(itemRef.current, {x: -300}, {x: 0, duration: .5});
+  }, [handleClick]);
+
   return (
     <Box sx={{
       filter: "blur(2.5px)", 
-      backgroundColor: theme.palette.primary.main,
+      backgroundColor: "background.default",
       boxShadow: "0 8px 3px rgb(0 0 0 / 25%)",
       transform: "scaleY(.9)",
       }}>
-      <Item onClick={handleClick}>
-        <Typography variant="h5" textAlign={"center"} sx={{marginBottom: "20px"}}>{title}</Typography>
-        <img src='https://repository-images.githubusercontent.com/452071216/1f2b1a80-1539-4221-bb96-030dad7e1aea' width={200} alt="hmm, something's missing here" />
-        {description.length > 80 ? <OverFlowText text={description}/> : <Typography>{description}</Typography>}
-        {fork ? <Typography variant='h6'>{"(This is a colaboration)"}</Typography> : null}
-      </Item>
+      <Paper ref={itemRef} onClick={handleClick} ref={itemRef} sx={{
+        display: "absolute",
+        textAlign: "center",
+        color: "text.secondary",
+        width: "300px",
+        minHeight: "300px",
+        lineHeight: '300%',
+      }}>
+        <Typography 
+          variant="h5" 
+          textAlign={"center"} 
+          sx={{marginBottom: "20px"}}>
+          {title}
+        </Typography>
+        <img 
+          src='https://repository-images.githubusercontent.com/452071216/1f2b1a80-1539-4221-bb96-030dad7e1aea' 
+          width={200} 
+          alt="hmm, something's missing here" 
+        />
+        {
+        description.length > 80 
+        ? <OverFlowText text={description}/> 
+        : <Typography variant='h4'>{description}</Typography>
+        }
+        {
+        fork 
+        ? <Typography variant='h6'>{"(This is a colaboration)"}</Typography> 
+        : null
+        }
+      </Paper>
     </Box>
   )
 }

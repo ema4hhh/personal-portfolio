@@ -32,8 +32,6 @@ const Intro = ({ trigger, handleGoToContent }) => {
       position: "relative",
       height: "94vh",
       width: "100%",
-      backgroundColor: theme.palette.primary.main,
-      color: theme.palette.fontColor.primary.main,
     }}>
       <Grid 
         container
@@ -46,10 +44,11 @@ const Intro = ({ trigger, handleGoToContent }) => {
             marginLeft: "45vh",
           }}>
             <Box>
-              <Typography style={{
+              <Typography sx={{
                 fontWeight: 500,
                 fontSize: "3.5rem",
                 marginBottom: "20px",
+                color: "text.primary",
               }}>
                 Hey! You found my portfolio
               </Typography>
@@ -58,7 +57,7 @@ const Intro = ({ trigger, handleGoToContent }) => {
               width: "600px",
               display: "inline-block"
             }}>
-              <Typography ref={el} style={{
+              <Typography ref={el} sx={{
                 color: "rgb(141,154,166)",
                 fontSize: "1.20rem",
                 lineHeight: "1.25",

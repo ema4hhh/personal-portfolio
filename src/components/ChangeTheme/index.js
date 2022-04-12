@@ -10,7 +10,7 @@ const ChangeTheme = ({ changeTheme, isDarkTheme }) => {
 
   return (
     <IconButton onClick={changeTheme} color="inherit">
-      {isDarkTheme ? <Brightness7 /> : <Brightness3 />}
+      {isDarkTheme === "dark" ? <Brightness7 /> : <Brightness3 />}
     </IconButton>
   )
 }

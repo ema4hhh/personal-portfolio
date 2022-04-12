@@ -27,7 +27,7 @@ const Cards = ({ cardName, skill }) => {
   return (
     <Card sx={{boxShadow: "none"}}>
       <Box sx={{display: "flex", alignItems: "flex-start", marginTop: "20px"}}>
-        <CardContent color={theme.palette.fontColor.primary.main}>
+        <CardContent color={"text.primary"}>
           <Typography variant='h3' sx={{display: "flex", fontWeight: 600}}>
             <ShowIcon />
             {cardName}
@@ -50,7 +50,7 @@ const Cards = ({ cardName, skill }) => {
               spacing={10}
             >
               <Paper elevation={0} sx={{
-                backgroundColor: theme.palette.primary.main,
+                backgroundColor: "background.default",
                 marginBottom: "20px"
               }}>
                 <Typography variant='h3'>

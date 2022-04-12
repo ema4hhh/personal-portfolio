@@ -6,20 +6,21 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 
 import ChangeTheme from "../ChangeTheme"
-import { useTheme } from '@mui/material';
+import { LinearProgress, useTheme } from '@mui/material';
 
-const NavBar = ({ setIsDarkTheme, isDarkTheme, changeTheme, trigger }) => {
+const NavBar = ({ isDarkTheme, changeTheme, loading }) => {
   const theme = useTheme();
 
   return (
     <Box sx={{
-      backgroundColor: theme.palette.primary.main
+      backgroundColor: "background.default"
     }}>
       <AppBar elevation={1} position="fixed" sx={{
-        backgrounColor: theme.palette.primary.main,
-        color: theme.palette.fontColor.primary.main,
+        backgroundColor: "background.default",
+        color: "text.primary",
         boxShadow: "none",
       }}>
+        {loading ? <LinearProgress color="inherit" sx={{zIndex: 1}} /> : null}
         <Toolbar sx={{
           width: "130vh",
           margin: "auto"
@@ -31,7 +32,7 @@ const NavBar = ({ setIsDarkTheme, isDarkTheme, changeTheme, trigger }) => {
             }}>
             {"<ECC />"}
           </Typography>
-          <ChangeTheme setIsDarkTheme={setIsDarkTheme} isDarkTheme={isDarkTheme} changeTheme={changeTheme} />
+          <ChangeTheme isDarkTheme={isDarkTheme} changeTheme={changeTheme} />
         </Toolbar>
       </AppBar>
       <Toolbar id="back-to-top-anchor" />
