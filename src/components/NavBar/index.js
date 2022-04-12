@@ -20,7 +20,7 @@ const NavBar = ({ isDarkTheme, changeTheme, loading }) => {
         color: "text.primary",
         boxShadow: "none",
       }}>
-        {loading ? <LinearProgress color="inherit" sx={{zIndex: 1}} /> : null}
+        {loading ? <LinearProgress color={isDarkTheme === "dark" ? "inherit" : "info"}sx={{zIndex: 1}} /> : null}
         <Toolbar sx={{
           width: "130vh",
           margin: "auto"
