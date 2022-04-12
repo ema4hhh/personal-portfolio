@@ -10,8 +10,8 @@ const useGetUser = () => {
   useEffect(() => {
     function getStat() {
       return new Promise((resolve, reject) => {
-        const response = axios.get(`https://api.github.com/users/ema4hhh/repos`);
-        resolve(response);
+        const reposResponse = axios.get(`https://api.github.com/users/ema4hhh/repos`);
+        resolve(reposResponse);
       })
     }
     async function asyncCall() {
