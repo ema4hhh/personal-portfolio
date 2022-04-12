@@ -7,7 +7,7 @@ import { Context } from "./Context";
 // MUI
 import { Box, createTheme } from "@mui/material";
 import { ThemeProvider } from '@mui/material/styles';
-import { getDesignTokens } from './Theme';
+import { getDesignTokens } from './theme';
 
 // Components
 import NavBar from "./components/NavBar";
