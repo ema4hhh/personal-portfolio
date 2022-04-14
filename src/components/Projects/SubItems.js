@@ -34,11 +34,10 @@ const OverFlowText = ({ text }) => {
   )
 }
 
-const Buttons = ({ languages }) => {
-
+const Buttons = ({ languages, currentRepo }) => {
   return (
-    <Stack direction="row" spacing={1}>
-      {languages.map((e, i) => <Chip label={e} key={i} variant="outlined" color="secondary" />)}
+    <Stack direction="row" spacing={1} sx={{display: "flex", justifyContent: "center"}}>
+      {languages.current[currentRepo].map((e, i) => <Chip label={e} key={i} variant="outlined" color="info" />)}
     </Stack>
   )
 }

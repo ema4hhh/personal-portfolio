@@ -6,7 +6,7 @@ import { Box, Paper, Typography, useTheme } from '@mui/material';
 
 import { OverFlowText, Buttons } from './SubItems';
 
-const LeftItem = ({ title, description, fork, handleClick }) => {
+const LeftItem = ({ title, description, fork, handleClick, reposLanguage, currentRepo }) => {
   const theme = useTheme()
 
   const itemRef = useRef();
@@ -53,11 +53,12 @@ const LeftItem = ({ title, description, fork, handleClick }) => {
         : null
         }
       </Paper>
+      <Buttons languages={reposLanguage} currentRepo={currentRepo} />
     </Box>
   )
 }
 
-const CenterItem = ({ title, description, fork }) => {
+const CenterItem = ({ title, description, fork, reposLanguage, currentRepo }) => {
   const theme = useTheme()
 
   const itemRef = useRef();
@@ -104,12 +105,12 @@ const CenterItem = ({ title, description, fork }) => {
         : null
         }
       </Paper>
-      <Buttons languages={["Javascript", "Python"]} />
+      <Buttons languages={reposLanguage} currentRepo={currentRepo} />
     </Box>
   )
 }
 
-const RightItem = ({ title, description, fork, handleClick }) => {
+const RightItem = ({ title, description, fork, handleClick, reposLanguage, currentRepo }) => {
   const theme = useTheme()
 
   const itemRef = useRef();
@@ -155,6 +156,7 @@ const RightItem = ({ title, description, fork, handleClick }) => {
         : null
         }
       </Paper>
+      <Buttons languages={reposLanguage} currentRepo={currentRepo} />
     </Box>
   )
 }
