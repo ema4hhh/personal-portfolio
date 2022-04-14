@@ -24,6 +24,7 @@ const App = () => {
     error,
     loading,
     repos,
+    reposLanguage,
     trigger,
     handleGoUpClick,
     handleGoToContent,
@@ -51,7 +52,7 @@ const App = () => {
           <Skills />
         </LazyLoad>
         <LazyLoad>
-          <Projects repos={repos.current} loading={loading} handleRightRepoClick={handleRightRepoClick} handleLeftRepoClick={handleLeftRepoClick} currentRepo={currentRepo} />
+          <Projects repos={repos.current} loading={loading} handleRightRepoClick={handleRightRepoClick} handleLeftRepoClick={handleLeftRepoClick} currentRepo={currentRepo} reposLanguage={reposLanguage} />
         </LazyLoad>
         <BackToTop trigger={trigger} handleGoUpClick={handleGoUpClick} />
       </Box>
