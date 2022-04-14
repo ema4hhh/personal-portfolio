@@ -13,6 +13,7 @@ const ContextProvider = (props) => {
     error,
     repos,
     loading,
+    reposLanguage,
   } = useGetUser();
 
   const handleRightRepoClick = () => {
@@ -60,6 +61,7 @@ const ContextProvider = (props) => {
       error,
       repos,
       loading,
+      reposLanguage,
       trigger,
       handleGoUpClick,
       handleGoToContent,
