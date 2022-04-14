@@ -4,7 +4,7 @@ import { LeftItem, CenterItem, RightItem } from './Items';
 
 import { Box, Typography, useTheme, Toolbar } from '@mui/material';
 
-const Item = ({ repos, handleRightRepoClick, handleLeftRepoClick, currentRepo }) => {
+const Item = ({ repos, handleRightRepoClick, handleLeftRepoClick, currentRepo, reposLanguage }) => {
 
   if(currentRepo === 0) {
     return (
@@ -14,17 +14,23 @@ const Item = ({ repos, handleRightRepoClick, handleLeftRepoClick, currentRepo })
           description={repos[repos.length-1].description ? repos[repos.length-1].description : "Not description yet"} 
           fork={repos[repos.length-1].fork}
           handleClick={handleLeftRepoClick}
+          reposLanguage={reposLanguage}
+          currentRepo={repos.length-1}
           />
         <CenterItem 
           title={repos[currentRepo].name} 
           description={repos[currentRepo].description ? repos[currentRepo].description : "Not description yet"} 
           fork={repos[currentRepo].fork}
+          reposLanguage={reposLanguage}
+          currentRepo={currentRepo}
           />
         <RightItem 
           title={repos[currentRepo+1].name} 
           description={repos[currentRepo+1].description ? repos[currentRepo+1].description : "Not description yet"} 
           fork={repos[currentRepo+1].fork}
           handleClick={handleRightRepoClick}
+          reposLanguage={reposLanguage}
+          currentRepo={currentRepo+1}
           />
       </Box>
     )
@@ -36,17 +42,23 @@ const Item = ({ repos, handleRightRepoClick, handleLeftRepoClick, currentRepo })
           description={repos[currentRepo-1].description ? repos[currentRepo-1].description : "Not description yet"} 
           fork={repos[currentRepo-1].fork}
           handleClick={handleLeftRepoClick}
+          reposLanguage={reposLanguage}
+          currentRepo={currentRepo-1}
           />
         <CenterItem 
           title={repos[currentRepo].name} 
           description={repos[currentRepo].description ? repos[currentRepo].description : "Not description yet"} 
           fork={repos[currentRepo].fork}
+          reposLanguage={reposLanguage}
+          currentRepo={currentRepo}
           />
         <RightItem 
           title={repos[0].name} 
           description={repos[0].description ? repos[0].description : "Not description yet"} 
           fork={repos[0].fork}
           handleClick={handleRightRepoClick}
+          reposLanguage={reposLanguage}
+          currentRepo={0}
           />
       </Box>
     ) 
@@ -58,24 +70,30 @@ const Item = ({ repos, handleRightRepoClick, handleLeftRepoClick, currentRepo })
             description={repos[currentRepo-1].description ? repos[currentRepo-1].description : "Not description yet"} 
             fork={repos[currentRepo-1].fork}
             handleClick={handleLeftRepoClick}
+            reposLanguage={reposLanguage}
+            currentRepo={currentRepo-1}
             />
           <CenterItem 
             title={repos[currentRepo].name} 
             description={repos[currentRepo].description ? repos[currentRepo].description : "Not description yet"} 
             fork={repos[currentRepo].fork}
+            reposLanguage={reposLanguage}
+            currentRepo={currentRepo}
             />
           <RightItem 
             title={repos[currentRepo+1].name} 
             description={repos[currentRepo+1].description ? repos[currentRepo+1].description : "Not description yet"} 
             fork={repos[currentRepo+1].fork}
             handleClick={handleRightRepoClick}
+            reposLanguage={reposLanguage}
+            currentRepo={currentRepo+1}
             />
         </Box>
       )
     }
 }
 
-const Projects = ({ repos, loading, handleRightRepoClick, handleLeftRepoClick, currentRepo }) => {
+const Projects = ({ repos, loading, handleRightRepoClick, handleLeftRepoClick, currentRepo, reposLanguage }) => {
   const theme = useTheme();
 
   return (
@@ -87,7 +105,13 @@ const Projects = ({ repos, loading, handleRightRepoClick, handleLeftRepoClick, c
       
       <Typography sx={{marginBottom: "3vh"}} id="projects" variant='h1'>My Projects</Typography>
       {loading ? null 
-        : <Item repos={repos} handleRightRepoClick={handleRightRepoClick} handleLeftRepoClick={handleLeftRepoClick} currentRepo={currentRepo} />
+        : <Item 
+            repos={repos} 
+            handleRightRepoClick={handleRightRepoClick} 
+            handleLeftRepoClick={handleLeftRepoClick} 
+            currentRepo={currentRepo} 
+            reposLanguage={reposLanguage} 
+          />
       }
       
     </Box>
