@@ -19,41 +19,89 @@ const LeftItem = ({ title, description, fork, handleClick, reposLanguage, curren
     <Box sx={{
       filter: "blur(2.5px)", 
       backgroundColor: "background.default",
-      boxShadow: "0 8px 3px rgb(0 0 0 / 25%)",
       transform: "scaleY(.9)",
       }}>
       <Paper ref={itemRef} onClick={handleClick} sx={{
-        display: "absolute",
-        textAlign: "center",
-        color: "text.secondary",
-        width: "300px",
-        minHeight: "300px",
-        lineHeight: '300%',
-      }}>
-        <Typography 
-          variant="h5" 
-          textAlign={"center"} 
-          sx={{marginBottom: "20px"}}
-        >
-          {title}
-        </Typography>
-        <img 
-          src='https://repository-images.githubusercontent.com/452071216/1f2b1a80-1539-4221-bb96-030dad7e1aea' 
-          width={200} 
-          alt="hmm, something's missing here" 
-        />
-        {
-        description.length > 80 
-        ? <OverFlowText text={description}/> 
-        : <Typography variant='h4' marginLeft={"10px"} marginRight={"10px"}>{description}</Typography>
-        }
-        {
-        fork 
-        ? <Typography variant='h6'>{"(This is a colaboration)"}</Typography> 
-        : null
-        }
+        position: "relative",
+        backgroundColor: "transparent",
+        boxShadow: "none",
+        }}>
+        <Box className='face face1' sx={{
+          width: "300px",
+          height: "200px",
+          transition: ".4s",
+
+          position: "relative",
+          background: "#333",
+          display: "flex",
+          justifyContent: "center",
+          alignContent:"center",
+          alignItems: "center",
+          zIndex: 1,
+          transform: "translateY(100px)",
+          }}>
+          <Box className='content' sx={{
+            opacity: ".2",
+            transition:  "0.5s",
+            textAlign: "center",
+            }}>
+            <Typography 
+              variant="h5" 
+              textAlign={"center"} 
+              >
+              {title}
+            </Typography>
+          </Box>
+        </Box>
+        <Box className='face face2' sx={{
+          width: "300px",
+          height: "200px",
+          transition: ".4s",
+
+          position: "relative",
+          background: "whitesmoke",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          boxSizing: "border-box",
+          boxShadow: "0 20px 50px rgba(0,0,0,.8)",
+          transform: "translateY(-100px)",
+          }}>
+          <Box className='content' sx={{
+            color: "black",
+            }}>
+            {
+            description.length > 80 
+            ? <OverFlowText text={description}/> 
+            : <Typography 
+                variant='h4'
+                >
+                {description}
+              </Typography>
+            }
+            {
+            fork 
+            ? <Typography 
+                variant='h6' 
+                sx={{
+                  marginBottom: "auto"
+                }}>
+                {"(This is a colaboration)"}
+              </Typography> 
+            : null
+            }
+            <Box sx={{
+              display: "flex",
+              justifyContent: "center"
+              }}>
+              <Buttons 
+                languages={reposLanguage} 
+                currentRepo={currentRepo} 
+              />
+            </Box>
+          </Box>
+        </Box>
       </Paper>
-      <Buttons languages={reposLanguage} currentRepo={currentRepo} />
     </Box>
   )
 }
@@ -71,41 +119,100 @@ const CenterItem = ({ title, description, fork, reposLanguage, currentRepo }) =>
     <Box sx={{
       position: "absolute", 
       zIndex: 1,
-      backgroundColor: "background.default",
-      boxShadow: "0 8px 3px rgb(0 0 0 / 25%)",
       }}>
-      <Paper ref={itemRef} sx={{
-        display: "absolute",
-        textAlign: "center",
-        color: "text.secondary",
-        width: "300px",
-        minHeight: "300px",
-        lineHeight: '300%',
-      }}>
-        <Typography 
-          variant="h5" 
-          textAlign={"center"} 
-          sx={{marginBottom: "20px"}}
-        >
-          {title}
-        </Typography>
-        <img 
-          src='https://repository-images.githubusercontent.com/452071216/1f2b1a80-1539-4221-bb96-030dad7e1aea' 
-          width={200} 
-          alt="hmm, something's missing here" 
-        />
-        {
-        description.length > 80 
-        ? <OverFlowText text={description}/> 
-        : <Typography variant='h4' marginLeft={"10px"} marginRight={"10px"}>{description}</Typography>
-        }
-        {
-        fork 
-        ? <Typography variant='h6'>{"(This is a colaboration)"}</Typography> 
-        : null
-        }
+      <Paper className='card' ref={itemRef} sx={{
+        position: "relative",
+        backgroundColor: "transparent",
+        boxShadow: "none",
+
+        "&:hover .face.face1": {
+          transform: "translateY(0)",
+          boxShadow: "inset 0 0 60px whitesmoke, inset 20px 0 80px #f0f, inset -20px 0 80px #0ff, inset 20px 0 300px #f0f, inset -20px 0 300px #0ff, 0 0 50px #fff, -10px 0 80px #f0f, 10px 0 80px #0ff"
+        },
+        "&:hover .face.face1 .content": {
+          opacity: 1
+        },
+        "&:hover .face.face2": {
+          transform: "translateY(0)",
+        },
+        }}>
+        <Box className='face face1' sx={{
+          width: "300px",
+          height: "200px",
+          transition: ".4s",
+
+          position: "relative",
+          background: "#333",
+          display: "flex",
+          justifyContent: "center",
+          alignContent:"center",
+          alignItems: "center",
+          zIndex: 1,
+          transform: "translateY(100px)",
+          }}>
+          <Box className='content' sx={{
+            opacity: ".2",
+            transition:  "0.5s",
+            textAlign: "center",
+            }}>
+            <Typography 
+              variant="h5" 
+              textAlign={"center"} 
+              >
+              {title}
+            </Typography>
+          </Box>
+        </Box>
+
+        <Box className='face face2' sx={{
+          width: "300px",
+          height: "200px",
+          transition: ".4s",
+
+          position: "relative",
+          background: "whitesmoke",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          boxSizing: "border-box",
+          boxShadow: "0 20px 50px rgba(0,0,0,.8)",
+          transform: "translateY(-100px)",
+          }}>
+          <Box className='content' sx={{
+            color: "black",
+            }}>
+            {
+            description.length > 80 
+            ? <OverFlowText text={description}/> 
+            : <Typography 
+                variant='h4'
+                >
+                {description}
+              </Typography>
+            }
+            {
+            fork 
+            ? <Typography 
+                variant='h6' 
+                sx={{
+                  marginBottom: "auto"
+                }}>
+                {"(This is a colaboration)"}
+              </Typography> 
+            : null
+            }
+            <Box sx={{
+              display: "flex",
+              justifyContent: "center"
+            }}>
+              <Buttons 
+                languages={reposLanguage} 
+                currentRepo={currentRepo} 
+                />
+            </Box>
+          </Box>
+        </Box>
       </Paper>
-      <Buttons languages={reposLanguage} currentRepo={currentRepo} />
     </Box>
   )
 }
@@ -123,40 +230,89 @@ const RightItem = ({ title, description, fork, handleClick, reposLanguage, curre
     <Box sx={{
       filter: "blur(2.5px)", 
       backgroundColor: "background.default",
-      boxShadow: "0 8px 3px rgb(0 0 0 / 25%)",
       transform: "scaleY(.9)",
       }}>
       <Paper ref={itemRef} onClick={handleClick} sx={{
-        display: "absolute",
-        textAlign: "center",
-        color: "text.secondary",
-        width: "300px",
-        minHeight: "300px",
-        lineHeight: '300%',
-      }}>
-        <Typography 
-          variant="h5" 
-          textAlign={"center"} 
-          sx={{marginBottom: "20px"}}>
-          {title}
-        </Typography>
-        <img 
-          src='https://repository-images.githubusercontent.com/452071216/1f2b1a80-1539-4221-bb96-030dad7e1aea' 
-          width={200} 
-          alt="hmm, something's missing here" 
-        />
-        {
-        description.length > 80 
-        ? <OverFlowText text={description}/> 
-        : <Typography variant='h4' marginLeft={"10px"} marginRight={"10px"}>{description}</Typography>
-        }
-        {
-        fork 
-        ? <Typography variant='h6'>{"(This is a colaboration)"}</Typography> 
-        : null
-        }
+        position: "relative",
+        backgroundColor: "transparent",
+        boxShadow: "none",
+        }}>
+        <Box className='face face1' sx={{
+          width: "300px",
+          height: "200px",
+          transition: ".4s",
+
+          position: "relative",
+          background: "#333",
+          display: "flex",
+          justifyContent: "center",
+          alignContent:"center",
+          alignItems: "center",
+          zIndex: 1,
+          transform: "translateY(100px)",
+          }}>
+          <Box className='content' sx={{
+            opacity: ".2",
+            transition:  "0.5s",
+            textAlign: "center",
+            }}>
+            <Typography 
+              variant="h5" 
+              textAlign={"center"} 
+              >
+              {title}
+            </Typography>
+          </Box>
+        </Box>
+        <Box className='face face2' sx={{
+          width: "300px",
+          height: "200px",
+          transition: ".4s",
+
+          position: "relative",
+          background: "whitesmoke",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          boxSizing: "border-box",
+          boxShadow: "0 20px 50px rgba(0,0,0,.8)",
+          transform: "translateY(-100px)",
+          }}>
+          <Box className='content' sx={{
+            color: "black",
+            }}>
+            {
+            description.length > 80 
+            ? <OverFlowText text={description}/> 
+            : <Typography 
+                variant='h4'
+                >
+                {description}
+              </Typography>
+            }
+            {
+            fork 
+            ? <Typography 
+                variant='h6' 
+                sx={{
+                  marginBottom: "auto"
+                }}>
+                {"(This is a colaboration)"}
+              </Typography> 
+            : null
+            }
+            <Box sx={{
+              display: "flex",
+              justifyContent: "center"
+              }}>
+              <Buttons 
+                languages={reposLanguage} 
+                currentRepo={currentRepo} 
+              />
+            </Box>
+          </Box>
+        </Box>
       </Paper>
-      <Buttons languages={reposLanguage} currentRepo={currentRepo} />
     </Box>
   )
 }
