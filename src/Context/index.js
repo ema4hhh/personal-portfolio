@@ -51,7 +51,7 @@ const ContextProvider = (props) => {
     }
   }
 
-  const [mode, setMode] = useState('light');
+  const [mode, setMode] = useState('dark');
   const colorMode = () => {
     setMode((prevMode) => (prevMode === 'light' ? 'dark' : 'light'));
   }
