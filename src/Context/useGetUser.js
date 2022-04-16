@@ -6,7 +6,16 @@ const useGetUser = () => {
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(true);
   const repos = useRef([]);
-  const reposLanguage = useRef([])
+  const reposLanguage = useRef([]);
+
+  let request = async (repo) => {
+    let request = await new Promise((resolve, reject) => {
+      const languagesResponse = axios.get(`https://api.github.com/repos/ema4hhh/${repo.name}/languages`);
+      resolve(languagesResponse);
+      reject("error");
+    })
+    return request;
+  }
   
   useEffect(() => {
     let getRepos = new Promise((resolve, reject) => {
@@ -14,32 +23,25 @@ const useGetUser = () => {
       resolve(reposResponse);
       reject("apparently");
     })
+
     getRepos.then(
       (result) => {
-        result.data.filter((e) => e.name !== "ema4hhh").map((e) => {
-        return repos.current.push(e)
-        })
+        result.data.filter((e) => e.name !== "ema4hhh").map((e) => repos.current.push(e));
       }
     ).catch(err => {
-      setError(err)
+      setError(err);
     })
+
     getRepos.then(
       async () => {
-        await Promise.all(
-          repos.current.map(async (e, i) => {
-            let request = new Promise((resolve, reject) => {
-              const languagesResponse = axios.get(`https://api.github.com/repos/ema4hhh/${e.name}/languages`)
-              resolve(languagesResponse)
-              reject("error")
-            })
-            request.then(
-              (result) => {
-                reposLanguage.current.push(Object.keys(result.data))
-                setLoading(false);
-              }
-            ).catch(err => setError(err))
-          })
-        )
+        const response = repos.current.map(async (e) => {
+          const data = await request(e);
+          return { data };
+        })
+
+        const result = await Promise.all(response);
+        result.map((e) => reposLanguage.current.push(Object.keys(e.data.data)));
+        setLoading(false);
       }
     )
   }, [])
