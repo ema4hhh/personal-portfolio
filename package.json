@@ -51,5 +51,9 @@
   },
   "devDependencies": {
     "eslint-plugin-react-hooks": "^4.3.0"
-  }
+  },
+  "main": "index.js",
+  "repository": "https://github.com/ema4hhh/personal-portfolio.git",
+  "author": "ema4hhh <ema4hhh@gmail.com>",
+  "license": "MIT"
 }
