@@ -5,6 +5,7 @@ import { gsap } from "gsap";
 import { Box, Paper, Typography, useTheme } from '@mui/material';
 
 import { OverFlowText, Buttons } from './SubItems';
+import { GitHub } from '@mui/icons-material';
 
 const LeftItem = ({ title, description, fork, handleClick, reposLanguage, currentRepo }) => {
   const theme = useTheme()
@@ -112,7 +113,7 @@ const CenterItem = ({ title, description, fork, reposLanguage, currentRepo }) =>
   const itemRef = useRef();
 
   useEffect(() => {
-    gsap.fromTo(itemRef.current, {opacity: 0}, {opacity: 1, duration: 1});
+    gsap.fromTo(itemRef.current, {opacity: 0}, {opacity: 1, duration: .7});
   }, [title]);
 
   return (
@@ -155,6 +156,15 @@ const CenterItem = ({ title, description, fork, reposLanguage, currentRepo }) =>
             transition:  "0.5s",
             textAlign: "center",
             }}>
+            <GitHub onClick={() => window.open(`https://github.com/ema4hhh/${title}`, "_blank")} fontSize='large' sx={{
+              position: "absolute",
+              top: 5,
+              right: 5,
+              transition: ".6s",
+              "&:hover": {
+                transform: "translateY(10px) scale(1.05)",
+              }
+            }} />
             <Typography 
               variant="h5" 
               textAlign={"center"} 
