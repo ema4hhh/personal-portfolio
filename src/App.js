@@ -1,7 +1,5 @@
 import React, { useContext, useMemo } from "react";
 
-import LazyLoad from 'react-lazyload';
-
 import { Context } from "./Context";
 
 // MUI
@@ -16,6 +14,7 @@ import About from "./components/About";
 import Skills from "./components/Skills"
 import Projects from "./components/Projects";
 import BackToTop from "./components/BackTotop/";
+import Education from "./components/Education";
 
 
 const App = () => {
@@ -44,17 +43,22 @@ const App = () => {
 
   return (
     <ThemeProvider theme={theme}>
-      <Box sx={{backgroundColor: "background.default"}}>
-        <NavBar isDarkTheme={mode} changeTheme={colorMode} loading={loading} />
-        <Intro trigger={trigger} handleGoToContent={handleGoToContent}/>
-        <About />
-        <LazyLoad>
+      <Box sx={{backgroundColor: "background.default"}} id="smooth-wrapper">
+          <NavBar isDarkTheme={mode} changeTheme={colorMode} loading={loading} />
+        <Box id="smooth-content">  
+          <Intro trigger={trigger} handleGoToContent={handleGoToContent}/>
+          <About />
+          <Education />
           <Skills />
-        </LazyLoad>
-        <LazyLoad>
-          <Projects repos={repos.current} loading={loading} handleRightRepoClick={handleRightRepoClick} handleLeftRepoClick={handleLeftRepoClick} currentRepo={currentRepo} reposLanguage={reposLanguage} />
-        </LazyLoad>
-        <BackToTop trigger={trigger} handleGoUpClick={handleGoUpClick} />
+          <Projects 
+            repos={repos.current} 
+            loading={loading} 
+            handleRightRepoClick={handleRightRepoClick} 
+            handleLeftRepoClick={handleLeftRepoClick} 
+            currentRepo={currentRepo} 
+            reposLanguage={reposLanguage} />
+          <BackToTop trigger={trigger} handleGoUpClick={handleGoUpClick} />
+        </Box>
       </Box>
     </ThemeProvider>
   );
