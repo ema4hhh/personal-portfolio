@@ -2,8 +2,6 @@ import React from 'react'
 
 import { Box, Grid, Toolbar, Typography, useTheme } from '@mui/material';
 
-import illustration from "../../assets/Hand-holding-pen-rafiki.svg"
-
 const Intro = () => {
 
   const theme = useTheme();
