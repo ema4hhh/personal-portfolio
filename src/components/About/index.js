@@ -23,13 +23,10 @@ const Intro = () => {
           marginBottom: "3vh"
         }}>About Me</Typography>
         <Grid container>
-          <Grid item xs={6}>
-            <img src={illustration} alt="something is not showing here..." width={"400vh"} height={"400vh"} />
-          </Grid>
-          <Grid item xs={6}>
+          <Grid item xs={12}>
             <Typography variant='h4' sx={{
-              marginTop: "10vh",
-              textAlign: "left",
+              marginTop: "2vh",
+              textAlign: "center",
               lineHeight: 1.5
             }}>
               Self-taught developer and data science student, passionate about software development, technology and maths. <br />

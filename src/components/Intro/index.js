@@ -17,9 +17,12 @@ const Intro = ({ trigger, handleGoToContent }) => {
 
   useEffect(() => {
     const typed = new Typed(el.current, {
-      strings: ["I'm Emanuel, Fullstack Developer"],
+      strings: ["I'm Emanuel, Fullstack Developer", "I'm Emanuel, Data scientific"],
       typeSpeed: 50,
-      showCursor: false
+      showCursor: false,
+      backSpeed: 70,
+      backDelay: 1000,
+      loop: true
     });
     return () => {
       typed.destroy();
@@ -66,9 +69,7 @@ const Intro = ({ trigger, handleGoToContent }) => {
           </Box>
         </Grid>
         <Grid item xs={6}>
-          <img src={MyImage} width={""} height={"350vh"} alt="hmm, something didn't load here" sx={{
-            marginLeft: "10vh"
-          }}/>
+          
         </Grid>
       </Grid>
       
