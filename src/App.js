@@ -48,8 +48,8 @@ const App = () => {
         <Box id="smooth-content">  
           <Intro trigger={trigger} handleGoToContent={handleGoToContent}/>
           <About />
-          <Education />
           <Skills />
+          <Education />
           <Projects 
             repos={repos.current} 
             loading={loading} 
