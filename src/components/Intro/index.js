@@ -1,14 +1,14 @@
 import React, { useEffect, useRef } from 'react';
 
-//Typing animation library
+// Typing animation library
 import Typed from "typed.js";
 
+// MUI
 import { Box, Grid, Typography } from '@mui/material';
 import { useTheme } from "@mui/material/styles";
 
+// Components
 import GoToContent from './GoToContent';
-
-import MyImage from '../../assets/asd.png';
 
 const Intro = ({ trigger, handleGoToContent }) => {
   const theme = useTheme();
