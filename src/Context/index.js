@@ -51,11 +51,6 @@ const ContextProvider = (props) => {
     }
   }
 
-  const [mode, setMode] = useState('dark');
-  const colorMode = () => {
-    setMode((prevMode) => (prevMode === 'light' ? 'dark' : 'light'));
-  }
-
   return (
     <Context.Provider value={{
       error,
@@ -68,8 +63,6 @@ const ContextProvider = (props) => {
       handleRightRepoClick,
       handleLeftRepoClick,
       currentRepo,
-      colorMode,
-      mode,
     }}>
       {props.children}
     </Context.Provider>
