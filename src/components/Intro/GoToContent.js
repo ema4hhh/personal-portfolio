@@ -30,7 +30,7 @@ const GoToContent = ({ trigger, handleGoToContent }) => {
         color: "white",
       }}>
         <StyledFab disableRipple variant="extended" size='small' onClick={handleGoToContent}>
-          <KeyboardArrowDown sx={{height: 60, width: 60, color: theme.palette.fontColor.primary.main}} />
+          <KeyboardArrowDown sx={{height: 60, width: 60, color: "text.primary"}} />
         </StyledFab>
       </Fade>
     </Box>

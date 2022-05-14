@@ -9,8 +9,8 @@ const Skills = () => {
 
   return (
     <Box id="skills"  sx={{
-      backgroundColor: theme.palette.primary.main,
-      color: theme.palette.fontColor.primary.main,
+      backgroundColor: "background.default",
+      color: "text.primary",
       }}>
       <Toolbar id="go-to-skills" />
 
@@ -18,9 +18,6 @@ const Skills = () => {
         width: "90vh",
         margin: "auto",
       }}>  
-        <Typography variant='h1' sx={{marginBottom: "3vh"}}>
-          Skills
-        </Typography>
         <Grid container direction="row" spacing={2}>
           <Grid item xs={6} columnSpacing={5} justifyContent="center">
             <Cards cardName={"Frontend"} skill={["JavaScript", "Html", "Css", "React", "MaterialUI"]} />
@@ -29,7 +26,7 @@ const Skills = () => {
             <Cards cardName={"Backend"} skill={["Express", "Python"]} />
           </Grid>
           <Grid item xs={6} columnSpacing={5} justifyContent="center">
-            <Cards cardName={"Databases"} skill={["PostgreSQL", "SQL"]}  />
+            <Cards cardName={"Databases"} skill={["PostgreSQL", "SQL Server", "PowerBI"]}  />
           </Grid>
           <Grid item xs={6} columnSpacing={5} justifyContent="center">
             <Cards cardName={"Artificial Inteligence"} skill={["Python"]} />

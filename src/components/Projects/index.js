@@ -1,45 +1,127 @@
 import React from 'react';
 
-import { Box, Grid, Typography, useTheme, Paper } from '@mui/material';
-import { styled } from '@mui/styles';
+import { LeftItem, CenterItem, RightItem } from './Items';
 
-const Item = styled(Paper)(({ theme }) => ({
-  ...theme.palette.secondary.main,
-  textAlign: "center",
-  color: theme.palette.fontColor.secondary.main,
-  height: 60,
-  lineHeight: '300%',
-  backgroundColor: theme.palette.secondary.main,
-  boxShadow: `2px 1px 14px ${theme.palette.secondary.main}`
-}))
+import { Box, Typography, useTheme, Toolbar, Skeleton } from '@mui/material';
 
-const Projects = () => {
+const Item = ({ repos, handleRightRepoClick, handleLeftRepoClick, currentRepo, reposLanguage }) => {
+
+  if(currentRepo === 0) {
+    return (
+      <Box sx={{display: "flex", alignContent: "center", justifyContent: "center"}}>
+        <LeftItem 
+          title={repos[repos.length-1].name} 
+          description={repos[repos.length-1].description ? repos[repos.length-1].description : "Not description yet"} 
+          fork={repos[repos.length-1].fork}
+          handleClick={handleLeftRepoClick}
+          reposLanguage={reposLanguage}
+          currentRepo={repos.length-1}
+          />
+        <CenterItem 
+          title={repos[currentRepo].name} 
+          description={repos[currentRepo].description ? repos[currentRepo].description : "Not description yet"} 
+          fork={repos[currentRepo].fork}
+          reposLanguage={reposLanguage}
+          currentRepo={currentRepo}
+          />
+        <RightItem 
+          title={repos[currentRepo+1].name} 
+          description={repos[currentRepo+1].description ? repos[currentRepo+1].description : "Not description yet"} 
+          fork={repos[currentRepo+1].fork}
+          handleClick={handleRightRepoClick}
+          reposLanguage={reposLanguage}
+          currentRepo={currentRepo+1}
+          />
+      </Box>
+    )
+  } else if(currentRepo === repos.length-1) {
+    return (
+      <Box sx={{display: "flex", alignContent: "center", justifyContent: "center"}}>
+        <LeftItem 
+          title={repos[currentRepo-1].name} 
+          description={repos[currentRepo-1].description ? repos[currentRepo-1].description : "Not description yet"} 
+          fork={repos[currentRepo-1].fork}
+          handleClick={handleLeftRepoClick}
+          reposLanguage={reposLanguage}
+          currentRepo={currentRepo-1}
+          />
+        <CenterItem 
+          title={repos[currentRepo].name} 
+          description={repos[currentRepo].description ? repos[currentRepo].description : "Not description yet"} 
+          fork={repos[currentRepo].fork}
+          reposLanguage={reposLanguage}
+          currentRepo={currentRepo}
+          />
+        <RightItem 
+          title={repos[0].name} 
+          description={repos[0].description ? repos[0].description : "Not description yet"} 
+          fork={repos[0].fork}
+          handleClick={handleRightRepoClick}
+          reposLanguage={reposLanguage}
+          currentRepo={0}
+          />
+      </Box>
+    ) 
+  } else {
+      return (
+        <Box sx={{display: "flex", alignContent: "center", justifyContent: "center"}}>
+          <LeftItem 
+            title={repos[currentRepo-1].name} 
+            description={repos[currentRepo-1].description ? repos[currentRepo-1].description : "Not description yet"} 
+            fork={repos[currentRepo-1].fork}
+            handleClick={handleLeftRepoClick}
+            reposLanguage={reposLanguage}
+            currentRepo={currentRepo-1}
+            />
+          <CenterItem 
+            title={repos[currentRepo].name} 
+            description={repos[currentRepo].description ? repos[currentRepo].description : "Not description yet"} 
+            fork={repos[currentRepo].fork}
+            reposLanguage={reposLanguage}
+            currentRepo={currentRepo}
+            />
+          <RightItem 
+            title={repos[currentRepo+1].name} 
+            description={repos[currentRepo+1].description ? repos[currentRepo+1].description : "Not description yet"} 
+            fork={repos[currentRepo+1].fork}
+            handleClick={handleRightRepoClick}
+            reposLanguage={reposLanguage}
+            currentRepo={currentRepo+1}
+            />
+        </Box>
+      )
+    }
+}
+
+const Projects = ({ repos, loading, handleRightRepoClick, handleLeftRepoClick, currentRepo, reposLanguage }) => {
   const theme = useTheme();
 
   return (
     <Box sx={{
-      backgroundColor: theme.palette.primary.main,
-      color: theme.palette.fontColor.primary.main
+      backgroundColor: "background.default",
+      color: "text.primary",
       }}>
-      <Typography id="projects" variant='h1'>My Projects</Typography>
-      <Grid container rowSpacing={4} columnSpacing={2}>
-        <Grid item xs={6}>
-          <Item>Personal Portfolio</Item>
-        </Grid>
-        <Grid item xs={6}>
-          <Item>To-do List</Item>
-        </Grid>
-        <Grid item xs={6}>
-          <Item>Password Generator</Item>
-        </Grid>
-        <Grid item xs={6}><Item>Codigo Sancocho</Item></Grid>
-        <Grid item xs={6}>
-          <Item>Virtual Mouse</Item>
-        </Grid>
-        <Grid item xs={6}>
-          <Item>Learning Node</Item>
-        </Grid>
-      </Grid>
+      <Toolbar id="go-to-projects" />
+      
+      <Typography sx={{marginBottom: "3vh"}} id="projects" variant='h1'>My Projects</Typography>
+      <Box sx={{
+        display: "flex",
+        justifyContent: "center",
+        alignContent: "center"
+      }}>
+        {
+        loading 
+          ? <Skeleton variant="rectangular" width={300} height={200}  />
+          : <Item 
+              repos={repos} 
+              handleRightRepoClick={handleRightRepoClick} 
+              handleLeftRepoClick={handleLeftRepoClick} 
+              currentRepo={currentRepo} 
+              reposLanguage={reposLanguage} 
+            />
+        }
+      </Box>
+      
     </Box>
   )
 }

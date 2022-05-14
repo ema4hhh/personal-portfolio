@@ -6,6 +6,25 @@ const baseTheme = createTheme({
     fonySize: 14,
   },
 })
+const getDesignTokens ={
+    ...baseTheme,
+    palette: {
+      primary: {
+        main: "#1e1e1e",
+      },
+      secondary: {
+        main: "#ef233c",
+      },
+      background: {
+        default: "#1e1e1e",
+      },
+      text: {
+        primary: "#ffffff",
+        secondary: "#292929",
+      }
+    }
+  };
+
 
 baseTheme.typography.h1 = {
   textAlign: "center",
@@ -30,47 +49,14 @@ baseTheme.typography.h3 = {
   fontFamily: 'JetBrains Mono, monospace',
   fontWeight: 500
 }
+baseTheme.typography.h6 = {
+  textAlign: "start",
+  fontSize: ".7rem",
+  fontFamily: 'JetBrains Mono, monospace',
+  fontWeight: 300,
+  marginLeft: "10px",
+  marginTop: "5px",
+  color: "rgb(120,120,120)"
+}
 
-const darkTheme = createTheme({
-  ...baseTheme,
-  palette: {
-    mode: "dark",
-    primary:  {
-      main: "#1e1e1e",
-    },
-    secondary: {
-      main: "#ef233c",
-    },
-    fontColor: {
-      primary: {
-        main: "#ffffff",
-      },
-      secondary: {
-        main: "#000000",
-      }
-    },
-  },
-})
-
-const lightTheme = createTheme({
-  ...baseTheme,
-  palette: {
-    mode: "light",
-    primary: {
-      main: "#f5f5f5",
-    },
-    secondary: {
-      main: "#ff6367",
-    },
-    fontColor: {
-      primary: {
-        main: "#000000", 
-      },
-      secondary: {
-        main: "#ffffff",
-      }
-    },
-  },
-})
-
-export { darkTheme, lightTheme };
+export { getDesignTokens };

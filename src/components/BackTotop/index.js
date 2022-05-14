@@ -13,6 +13,10 @@ const BackToTop = ({ trigger, handleGoUpClick }) => {
         position: 'fixed', 
         bottom: 16, 
         right: 16 ,
+        transition: ".5s",
+        "&:hover": {
+          transform: "scale(1.1) translateY(-5px)",
+        }
       }}
     >
       <Slide direction='up' in={trigger} sx={{
