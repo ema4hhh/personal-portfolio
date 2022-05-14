@@ -41,12 +41,13 @@ const Intro = ({ trigger, handleGoToContent }) => {
       <Grid 
         container
         direction="row"
-        justifyContent={"space-around"}
+        justifyContent="space-around"
         alignContent="center"
       >
-        <Grid item xs={5}>
+        <Grid item xs={6}>
           <Box sx={{
             marginLeft: "45vh",
+            textAlign: "right"
           }}>
             <Box>
               <Typography sx={{
@@ -54,6 +55,7 @@ const Intro = ({ trigger, handleGoToContent }) => {
                 fontSize: "3.0rem",
                 marginBottom: "20px",
                 color: "text.primary",
+                marginRight: "5vh"
               }}>
                 Hey!<br /> You found my portfolio
               </Typography>
@@ -66,83 +68,142 @@ const Intro = ({ trigger, handleGoToContent }) => {
                 color: "rgb(141,154,166)",
                 fontSize: "1.20rem",
                 lineHeight: "1.25",
+                textAlign: "center"
               }}></Typography>
             </Box>
           </Box>
         </Grid>
-        <Grid item xs={7}>
-          <Stack direction="row" spacing={3}>
-            <Typography
-              sx={{
-                fontSize: "2.5rem",
-                color: "#F72585"
-              }}
-            >
-              ReactJS
-            </Typography>
-            <Typography 
-              sx={{
-                fontSize: "1.6rem",
-                color: "#B5179E"
-            }}>
-              NodeJS
-            </Typography>
-          </Stack>
-          <Stack direction="row" spacing={3}>
-            <Typography
-              sx={{
-                fontSize: "1.2rem",
-                color: "#480CA8"
+        <Grid item xs={6}>
+          <Box sx={{
+          marginLeft: "5vh"
+        }}>
+            <Stack direction="row" spacing={3}>
+              <Typography
+                sx={{
+                  fontSize: "2.5rem",
+                  color: "rgba(255,255,255,.3)",
+                  textShadow: "0 0 15px rgba(255,255,255,.5), 0 0 10px rgba(255,255,255,.5)",
+                  transitionDuration: "1s",
+                  "&:hover": {
+                    transform: "translateY(0)",
+                    textShadow: "#FFF 0px 0px 5px, #FFF 0px 0px 10px, #FFF 0px 0px 15px, #FF2D95 0px 0px 20px, #FF2D95 0px 0px 30px, #FF2D95 0px 0px 40px, #FF2D95 0px 0px 50px, #FF2D95 0px 0px 75px"
+                  },
+                }}
+              >
+                ReactJS
+              </Typography>
+              <Typography 
+                sx={{
+                  fontSize: "1.6rem",
+                  color: "rgba(255,255,255,.3)",
+                  textShadow: "0 0 15px rgba(255,255,255,.5), 0 0 10px rgba(255,255,255,.5)",
+                  transitionDuration: "1s",
+                  "&:hover": {
+                    transform: "translateY(0)",
+                    textShadow: "#FFF 0px 0px 5px, #FFF 0px 0px 10px, #FFF 0px 0px 15px, #FF2D95 0px 0px 20px, #FF2D95 0px 0px 30px, #FF2D95 0px 0px 40px, #FF2D95 0px 0px 50px, #FF2D95 0px 0px 75px"
+                  },
               }}>
-              Express
-            </Typography>
-            <Typography
-              sx={{
-                fontSize: "1.5rem",
-                color: "#3A0CA3"
-              }}>
-              PostgreSQL
-            </Typography>
-            <Typography
-              sx={{
-                fontSize: "1.8rem",
-                color: "#560BAD"
-              }}>
-              Git
-            </Typography>
-          </Stack>
-          <Stack direction="row" spacing={3}>
-            <Typography
-              sx={{
-                fontSize: "1.5rem",
-                color: "#4895EF"
-              }}>
-              PowerBI
-            </Typography>
-            <Typography
-              sx={{
-                fontSize: "1.8rem",
-                color: "#4361EE"
-              }}>
-              SQL Server
-            </Typography>
-          </Stack>
-          <Stack direction="row" spacing={3}>
-            <Typography
-              sx={{
-                fontSize: "1.4rem",
-                color: "#4361EE"
-              }}>
-              GitHub
-            </Typography>
-            <Typography
-              sx={{
-                fontSize: "2rem",
-                color: "#480CA8"
-              }}>
-              MaterialUI
-            </Typography>
-          </Stack>
+                NodeJS
+              </Typography>
+            </Stack>
+            <Stack direction="row" spacing={3}>
+              <Typography
+                sx={{
+                  fontSize: "1.2rem",
+                  color: "rgba(255,255,255,.3)",
+                  textShadow: "0 0 15px rgba(255,255,255,.5), 0 0 10px rgba(255,255,255,.5)",
+                  transitionDuration: "1s",
+                  "&:hover": {
+                    transform: "translateY(0)",
+                    textShadow: "#FFF 0px 0px 5px, #FFF 0px 0px 10px, #FFF 0px 0px 15px, #FF2D95 0px 0px 20px, #FF2D95 0px 0px 30px, #FF2D95 0px 0px 40px, #FF2D95 0px 0px 50px, #FF2D95 0px 0px 75px"
+                  },
+                }}>
+                Express
+              </Typography>
+              <Typography
+                sx={{
+                  fontSize: "1.5rem",
+                  color: "rgba(255,255,255,.3)",
+                  textShadow: "0 0 15px rgba(255,255,255,.5), 0 0 10px rgba(255,255,255,.5)",
+                  transitionDuration: "1s",
+                  "&:hover": {
+                    transform: "translateY(0)",
+                    textShadow: "#FFF 0px 0px 5px, #FFF 0px 0px 10px, #FFF 0px 0px 15px, #FF2D95 0px 0px 20px, #FF2D95 0px 0px 30px, #FF2D95 0px 0px 40px, #FF2D95 0px 0px 50px, #FF2D95 0px 0px 75px"
+                  },
+                }}>
+                PostgreSQL
+              </Typography>
+              <Typography
+                sx={{
+                  fontSize: "1.8rem",
+                  color: "rgba(255,255,255,.3)",
+                  textShadow: "0 0 15px rgba(255,255,255,.5), 0 0 10px rgba(255,255,255,.5)",
+                  transitionDuration: "1s",
+                  "&:hover": {
+                    transform: "translateY(0)",
+                    textShadow: "#FFF 0px 0px 5px, #FFF 0px 0px 10px, #FFF 0px 0px 15px, #FF2D95 0px 0px 20px, #FF2D95 0px 0px 30px, #FF2D95 0px 0px 40px, #FF2D95 0px 0px 50px, #FF2D95 0px 0px 75px"
+                  },
+                }}>
+                Git
+              </Typography>
+            </Stack>
+            <Stack direction="row" spacing={3}>
+              <Typography
+                sx={{
+                  fontSize: "1.5rem",
+                  color: "rgba(255,255,255,.3)",
+                  textShadow: "0 0 15px rgba(255,255,255,.5), 0 0 10px rgba(255,255,255,.5)",
+                  transitionDuration: "1s",
+                  "&:hover": {
+                    transform: "translateY(0)",
+                    textShadow: "#FFF 0px 0px 5px, #FFF 0px 0px 10px, #FFF 0px 0px 15px, #FF2D95 0px 0px 20px, #FF2D95 0px 0px 30px, #FF2D95 0px 0px 40px, #FF2D95 0px 0px 50px, #FF2D95 0px 0px 75px"
+                  },
+                }}>
+                PowerBI
+              </Typography>
+              <Typography
+                sx={{
+                  fontSize: "1.8rem",
+                  color: "rgba(255,255,255,.3)",
+                  textShadow: "0 0 15px rgba(255,255,255,.5), 0 0 10px rgba(255,255,255,.5)",
+                  transitionDuration: "1s",
+                  "&:hover": {
+                    transform: "translateY(0)",
+                    textShadow: "#FFF 0px 0px 5px, #FFF 0px 0px 10px, #FFF 0px 0px 15px, #FF2D95 0px 0px 20px, #FF2D95 0px 0px 30px, #FF2D95 0px 0px 40px, #FF2D95 0px 0px 50px, #FF2D95 0px 0px 75px"
+                  },
+                }}>
+                SQL Server
+              </Typography>
+            </Stack>
+            <Stack direction="row" spacing={3}>
+              <Typography
+                sx={{
+                  fontSize: "1.4rem",
+                  color: "rgba(255,255,255,.3)",
+                  textShadow: "0 0 15px rgba(255,255,255,.5), 0 0 10px rgba(255,255,255,.5)",
+                  transitionDuration: "1s",
+                  "&:hover": {
+                    transform: "translateY(0)",
+                    textShadow: "#FFF 0px 0px 5px, #FFF 0px 0px 10px, #FFF 0px 0px 15px, #FF2D95 0px 0px 20px, #FF2D95 0px 0px 30px, #FF2D95 0px 0px 40px, #FF2D95 0px 0px 50px, #FF2D95 0px 0px 75px"
+                  },
+                }}>
+                GitHub
+              </Typography>
+              <Typography
+                sx={{
+                  fontSize: "2rem",
+                  color: "rgba(255,255,255,.3)",
+                  textShadow: "0 0 15px rgba(255,255,255,.5), 0 0 10px rgba(255,255,255,.5)",
+                  transitionDuration: "1s",
+                  "&:hover": {
+                    transform: "translateY(0)",
+                    textShadow: "#FFF 0px 0px 5px, #FFF 0px 0px 10px, #FFF 0px 0px 15px, #FF2D95 0px 0px 20px, #FF2D95 0px 0px 30px, #FF2D95 0px 0px 40px, #FF2D95 0px 0px 50px, #FF2D95 0px 0px 75px"
+                  },
+                }}>
+                MaterialUI
+              </Typography>
+            </Stack>
+          </Box>
         </Grid>
       </Grid>
       
