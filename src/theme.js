@@ -1,8 +1,12 @@
 import { createTheme } from '@mui/material/styles';
 
-const getDesignTokens = (mode) => (
-  mode === "dark" 
-  ? {
+const baseTheme = createTheme({
+  typography: {
+    fontFamily: "JetBrains Mono, monospace",
+    fonySize: 14,
+  },
+})
+const getDesignTokens ={
     ...baseTheme,
     palette: {
       primary: {
@@ -19,33 +23,8 @@ const getDesignTokens = (mode) => (
         secondary: "#292929",
       }
     }
-  }
-  : {
-    ...baseTheme,
-    palette: {
-      primary: {
-        main: "#f5f5f5",
-      },
-      secondary: {
-        main: "#ff6367",
-      },
-      background: {
-        default: "#f5f5f5",
-      },
-      text: {
-        primary: "#000000", 
-        secondary: "#ffffff",
-      }
-    }
-  }
-);
+  };
 
-const baseTheme = createTheme({
-  typography: {
-    fontFamily: "JetBrains Mono, monospace",
-    fonySize: 14,
-  },
-})
 
 baseTheme.typography.h1 = {
   textAlign: "center",
