@@ -8,7 +8,7 @@ import { ThemeProvider } from '@mui/material/styles';
 import { getDesignTokens } from './theme';
 
 // Components
-import NavBar from "./components/NavBar";
+import ChargingBar from "./components/ChargingBar";
 import Intro from "./components/Intro";
 import About from "./components/About";
 import Skills from "./components/Skills"
@@ -30,25 +30,19 @@ const App = () => {
     handleRightRepoClick,
     handleLeftRepoClick,
     currentRepo,
-    colorMode,
-    mode,
   } = useContext(Context);
 
-  const theme = useMemo(
-    () =>
-      createTheme(getDesignTokens(mode)),
-    [mode],
-  );
+  const theme = createTheme(getDesignTokens);
   
 
   return (
     <ThemeProvider theme={theme}>
       <Box sx={{backgroundColor: "background.default"}} id="smooth-wrapper">
-          <NavBar isDarkTheme={mode} changeTheme={colorMode} loading={loading} />
+          <ChargingBar loading={loading} />
         <Box id="smooth-content">  
           <Intro trigger={trigger} handleGoToContent={handleGoToContent}/>
           <About />
-          <Skills />
+          {/* <Skills /> */}
           <Education />
           <Projects 
             repos={repos.current} 
@@ -57,6 +51,7 @@ const App = () => {
             handleLeftRepoClick={handleLeftRepoClick} 
             currentRepo={currentRepo} 
             reposLanguage={reposLanguage} />
+          
           <BackToTop trigger={trigger} handleGoUpClick={handleGoUpClick} />
         </Box>
       </Box>
