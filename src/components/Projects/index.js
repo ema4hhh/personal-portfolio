@@ -2,7 +2,7 @@ import React from 'react';
 
 import { LeftItem, CenterItem, RightItem } from './Items';
 
-import { Box, Typography, useTheme, Toolbar } from '@mui/material';
+import { Box, Typography, useTheme, Toolbar, Skeleton } from '@mui/material';
 
 const Item = ({ repos, handleRightRepoClick, handleLeftRepoClick, currentRepo, reposLanguage }) => {
 
@@ -104,15 +104,23 @@ const Projects = ({ repos, loading, handleRightRepoClick, handleLeftRepoClick, c
       <Toolbar id="go-to-projects" />
       
       <Typography sx={{marginBottom: "3vh"}} id="projects" variant='h1'>My Projects</Typography>
-      {loading ? null 
-        : <Item 
-            repos={repos} 
-            handleRightRepoClick={handleRightRepoClick} 
-            handleLeftRepoClick={handleLeftRepoClick} 
-            currentRepo={currentRepo} 
-            reposLanguage={reposLanguage} 
-          />
-      }
+      <Box sx={{
+        display: "flex",
+        justifyContent: "center",
+        alignContent: "center"
+      }}>
+        {
+        loading 
+          ? <Skeleton variant="rectangular" width={300} height={200}  />
+          : <Item 
+              repos={repos} 
+              handleRightRepoClick={handleRightRepoClick} 
+              handleLeftRepoClick={handleLeftRepoClick} 
+              currentRepo={currentRepo} 
+              reposLanguage={reposLanguage} 
+            />
+        }
+      </Box>
       
     </Box>
   )
