@@ -11,13 +11,7 @@ const NavBar = ({ loading }) => {
 
   return (
     <Box>
-      <AppBar elevation={1} position="fixed" sx={{
-        boxShadow: "none",
-        backgroundColor: "rgba(30,30,30,.9)",
-        height: "50px",
-        filter: "blur(10px)",
-        zIndex: 1
-      }}>
+      <AppBar elevation={1} position="fixed">
         {loading ? <LinearProgress color="inherit" sx={{zIndex: 1}} /> : null}
       </AppBar>
       <Toolbar id="back-to-top-anchor" sx={{backgroundColor: "transparent"}} />
