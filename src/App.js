@@ -11,7 +11,6 @@ import { getDesignTokens } from './theme';
 import ChargingBar from "./components/ChargingBar";
 import Intro from "./components/Intro";
 import About from "./components/About";
-import Skills from "./components/Skills"
 import Projects from "./components/Projects";
 import BackToTop from "./components/BackTotop/";
 import Education from "./components/Education";
@@ -37,12 +36,11 @@ const App = () => {
 
   return (
     <ThemeProvider theme={theme}>
-      <Box sx={{backgroundColor: "background.default"}} id="smooth-wrapper">
+      <Box sx={{backgroundColor: "background.default"}}>
           <ChargingBar loading={loading} />
-        <Box id="smooth-content">  
+        <Box>  
           <Intro trigger={trigger} handleGoToContent={handleGoToContent}/>
           <About />
-          {/* <Skills /> */}
           <Education />
           <Projects 
             repos={repos.current} 
